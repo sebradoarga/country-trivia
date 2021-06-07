@@ -15,3 +15,9 @@ Write a custom hook that does:
 ```
 const [error, country] = useCountry('Suomi')
 ```
+
+### Step 1
+
+- Use the custom hook you created to fetch the res countries data
+- Render this data in a table, you can use html table tag, or component library like Material UI
+- Make sure to split the table into smaller components: table head, table body, table row
