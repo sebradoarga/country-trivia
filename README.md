@@ -34,6 +34,7 @@ Take your time to implement the following features:
 - Convert your hook to use either thunk or saga to fetch the data
 - Switch theme of the app with Context API
 - Add/remove the countries to/from favorite list using Redux, Redux-saga, Redux-thunk
+- Sort the table based on name, region, etc.
 - Maker sure the theme and favorite list is saved in local storage to persist accross refreshes of the page (you can use thunk or saga to implement side effects that get state from the store and save it to local storage)
 - Use React-router to navigate to different pages: home page with list of countries, single country page with details of the country
 - Styling: your choice: material UI, styled components, react-bootstrap, etc.
