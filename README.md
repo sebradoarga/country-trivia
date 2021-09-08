@@ -6,7 +6,9 @@ This is your final project for the frontend module
 
 ### General
 
+Fork this repo, then clone the **fork** to your machine and start working on it. You can open a pull request as soon as possible (no need to wait until finished)
 For styling, you can use whatever css solution you want: css, scss, Material UI, etc.
+You need to install the css library yourself. Make sure to use node-sass version 4.14.1 if you want to use scss
 
 ### Step 1
 
