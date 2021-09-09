@@ -1,19 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import TableBodyRow from './TableBodyRow/TableBodyRow';
 import TableBodyStyles from './TableBody.module.css';
+import useCountries from '../../../custom-hooks/useCountries';
 
 const TableBody = () => {
-    const [countries, setCountries] = useState([]);
+    const [error, countries] = useCountries();
+    console.log(countries);
 
-    const getCountries = async () => {
-        const response = await fetch('https://restcountries.eu/rest/v2/all');
-        const data = await response.json();
-        setCountries(data);
-    }
-
-    useEffect(() => {
-        getCountries();
-    }, []);
+// SET UP ERROR CASE!!
 
     return (
         <tbody className={TableBodyStyles.container}>
