@@ -1,3 +1,5 @@
 .table {
     width: 100%;
+    table-layout: fixed;
+    min-width: 120rem;
 }

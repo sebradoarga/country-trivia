@@ -1,4 +1,3 @@
-import React from 'react';
 import TableHead from './TableHead/TableHead';
 import TableBody from './TableBody/TableBody';
 import TableStyles from './Table.module.css';

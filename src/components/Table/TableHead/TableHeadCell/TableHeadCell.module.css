@@ -4,3 +4,11 @@
     text-transform: uppercase;
     color: white;
 }
+
+.cell:first-child {
+    width: 24%;
+}
+
+.cell:last-child {
+    width: 10rem;
+}
