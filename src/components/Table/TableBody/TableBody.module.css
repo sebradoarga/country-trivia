@@ -1,0 +1,9 @@
+.container {
+}
+
+.container::before {
+    content:"@";
+    display:block;
+    line-height:1.5rem;
+    text-indent:-99999px;
+}
