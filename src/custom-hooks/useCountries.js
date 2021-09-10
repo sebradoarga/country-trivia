@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 
 const useCountries = () => {
-    const URL = 'https://restcountries.eu/rest/v2/all';
+    const URL = 'https://restcountries.eu/rest/v2/';
     const [countries, setCountries] = useState([]); 
     const [error, setError] = useState();
 
