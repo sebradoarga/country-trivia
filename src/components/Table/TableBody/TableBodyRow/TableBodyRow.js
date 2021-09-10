@@ -7,7 +7,7 @@ const TableBodyRow = ({country}) => {
     return (
         <tr className={TableBodyRowStyles.row}>
             <td className={TableBodyRowStyles.cell}>
-                <img src={`${flag}`} alt="" className={TableBodyRowStyles.img} />
+                <img src={`${flag}`} alt={`Flag of ${name}`} className={TableBodyRowStyles.img} />
             </td>
             <td className={TableBodyRowStyles.cell}>{name}</td>
             <td className={TableBodyRowStyles.cell}>{population}</td>
