@@ -15,7 +15,7 @@ const TableBodyRow = ({country}) => {
             <td className={TableBodyRowStyles.cell}>
                 <ul className={TableBodyRowStyles.list}>
                     {languages.map(language => (
-                        <li>{language.nativeName}</li>
+                        <li key={language.name}>{language.nativeName}</li>
                     ))}
                 </ul>
             </td>

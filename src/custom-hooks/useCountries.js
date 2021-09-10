@@ -1,7 +1,7 @@
 // This hook is used to fetch all countries
 import { useState, useEffect } from "react";
 
-const useCountries = () => {
+const useCountries = (setLoading) => {
     const URL = 'https://restcountries.eu/rest/v2/';
     const [countries, setCountries] = useState([]); 
     const [error, setError] = useState();
@@ -10,7 +10,8 @@ const useCountries = () => {
         try {
             const response = await fetch(URL);
             const data = await response.json();
-            setCountries(data);    
+            setCountries(data); 
+            await setLoading(false);   
         } catch (error) {
             setError(error);
         }
