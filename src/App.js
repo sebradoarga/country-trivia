@@ -3,19 +3,22 @@ import {useState} from 'react';
 import Header from "./components/Header/Header";
 import Table from "./components/Table/Table";
 import useCountries from "./custom-hooks/useCountries";
+import useCountry from './custom-hooks/useCountry';
 
 function App() {
   const [loading, setLoading] = useState(true);
-  console.log("loading before", loading);
   const [error, countries] = useCountries(setLoading);
-  console.log("loading after", loading);
-  
+  const [countryError, country] = useCountry('Romania');
+  const [searchText, setSearchText] = useState("");
+  console.log("searchText", searchText);  
 
   // SET UP ERROR CASE!!
 
   return (
     <div className="App">
-      <Header />
+      <Header 
+      searchText={searchText}
+      setSearchText={setSearchText} />
       <Table
       loading={loading}
       error={error} 
