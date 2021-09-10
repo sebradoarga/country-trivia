@@ -1,5 +1,5 @@
 import "./App.css";
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Header from "./components/Header/Header";
 import Table from "./components/Table/Table";
 import useCountries from "./custom-hooks/useCountries";
@@ -8,11 +8,11 @@ import useCountry from './custom-hooks/useCountry';
 function App() {
   const [loading, setLoading] = useState(true);
   const [error, countries] = useCountries(setLoading);
-  const [countryError, country] = useCountry('Romania');
   const [searchText, setSearchText] = useState("");
-  console.log("searchText", searchText);  
+  const [countryError, searchedCountry] = useCountry(searchText);
 
-  // SET UP ERROR CASE!!
+  console.log("countryError", countryError);
+  console.log("searchedCountry", searchedCountry);
 
   return (
     <div className="App">
@@ -22,7 +22,10 @@ function App() {
       <Table
       loading={loading}
       error={error} 
-      countries={countries} />
+      countries={countries}
+      searchText={searchText}
+      searchedCountry={searchedCountry} 
+      countryError={countryError}/>
     </div>
   );
 }

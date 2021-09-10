@@ -4,7 +4,8 @@ import TableStyles from "./Table.module.css";
 import ErrorMessage from "../ErrorMessage";
 import LoadingMessage from "../LoadingMessage";
 
-const Table = ({ loading, setLoading, error, countries }) => {
+const Table = ({ loading, error, countries, searchText, searchedCountry, countryError }) => {
+
   return loading ? (
     <LoadingMessage />
   ) : error ? (
@@ -12,7 +13,7 @@ const Table = ({ loading, setLoading, error, countries }) => {
   ) : (
     <table className={TableStyles.table} cellSpacing="0" cellPadding="0">
       <TableHead />
-      <TableBody countries={countries} />
+      <TableBody countries={countries} searchText={searchText} searchedCountry={searchedCountry} countryError={countryError} />
     </table>
   );
 };

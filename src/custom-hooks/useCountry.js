@@ -2,23 +2,26 @@
 import React, {useState, useEffect} from 'react';
 
 const useCountry = (givenCountry) => {
-    const URL = 'https://restcountries.eu/rest/v2/';
+    const URL = `https://restcountries.eu/rest/v2/name/${givenCountry}`;
     const [country, setCountry] = useState([]);
     const [error, setError] = useState();
 
     const getCountry = async () => {
-        try {
-            const response = await fetch(URL);
-            const data = await response.json();
-            setCountry(await data.filter(country => country.name === givenCountry));    
-        } catch(error) {
-            setError(error);
+        if(givenCountry !== "") {
+            try {
+                const response = await fetch(URL);
+                const data = await response.json();
+                const filteredResponse = await data.filter(country => country.name.slice(0, givenCountry.length).toLowerCase() === givenCountry.toLowerCase());
+                setCountry(filteredResponse); 
+            } catch(error) {
+                setError(error);
+            }    
         }
-    }
+    } 
 
     useEffect(() => {
         getCountry();
-    }, []);
+    }, [givenCountry]);
 
     return [error, country];
 }
