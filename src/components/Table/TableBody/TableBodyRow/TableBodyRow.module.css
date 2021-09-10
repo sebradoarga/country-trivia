@@ -21,6 +21,11 @@
     font-size: 2rem;
     margin: auto;
     display: block;
+    transition: all 0.1s ease-in-out;
+}
+
+.button:hover {
+    background: #61bb6e;
 }
 
 .button:hover {

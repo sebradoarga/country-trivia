@@ -14,10 +14,12 @@
     color: white;
     padding: 1rem;
     font-size: 2rem;
+    transition: all 0.1s ease-in-out;
 }
 
 .btn:hover {
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 .value {

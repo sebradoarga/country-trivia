@@ -7,5 +7,9 @@
 }
 
 .themeBtn:hover {
+    color: #61bb6e;
+}
+
+.themeBtn:hover {
     cursor: pointer;
 }
