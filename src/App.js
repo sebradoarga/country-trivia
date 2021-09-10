@@ -11,9 +11,6 @@ function App() {
   const [searchText, setSearchText] = useState("");
   const [countryError, searchedCountry] = useCountry(searchText);
 
-  console.log("countryError", countryError);
-  console.log("searchedCountry", searchedCountry);
-
   return (
     <div className="App">
       <Header 
