@@ -1,13 +1,8 @@
 import React from "react";
-import CountryStyles from './Country.module.css';
 import CountryContainer from "../CountryContainer";
 
-const Country = ({countries}) => {
-  return (
-    <div className={CountryStyles.body}>
-        <CountryContainer countries={countries}/>
-    </div>
-  );
+const Country = ({ countries }) => {
+  return <CountryContainer countries={countries} />;
 };
 
 export default Country;

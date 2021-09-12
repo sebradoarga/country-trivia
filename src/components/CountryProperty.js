@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import CountryPropertyStyles from "./CountryProperty.module.css";
-import Country from "./Pages/Country";
 
 const CountryProperty = ({ text, countries, property }) => {
   const [visible, setVisible] = useState(false);
@@ -26,7 +25,8 @@ const CountryProperty = ({ text, countries, property }) => {
       >
         {countries.length < 1
           ? property
-          : property === countries[0].currencies || property === countries[0].languages
+          : property === countries[0].currencies ||
+            property === countries[0].languages
           ? property.map((element) => (
               <li className={CountryPropertyStyles.listItem}>{element.name}</li>
             ))

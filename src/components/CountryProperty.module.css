@@ -1,74 +1,73 @@
 .property {
-    margin: 1rem;
-    padding: 3rem 2rem;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin: 1rem;
+  padding: 3rem 2rem;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .name {
-    font-size: 2rem;
-    text-align: center;
-    font-weight: 800;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    line-height:2.5rem;
-    padding-bottom: 0.7rem;
-    transition: transform 0.2s ease-in-out;
-    background: transparent;
-    border: none;
-    color: white;
-    border-bottom: 3px solid white;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  line-height: 2.5rem;
+  padding-bottom: 0.7rem;
+  transition: transform 0.2s ease-in-out;
+  background: transparent;
+  border: none;
+  color: #222;
+  border-bottom: 3px solid #4C9757;
 }
 
 .name:hover {
-    transform: translateY(-0.2rem);
-    cursor: pointer;
+  transform: translateY(-0.2rem);
+  cursor: pointer;
 }
 
 .content {
-    font-size: 1.3rem;
-    text-align: center;
-    text-transform: uppercase;
-    visibility: hidden;
-    list-style-type: none;
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  visibility: hidden;
+  list-style-type: none;
 }
 
 .listItem {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .showContent {
-    animation: display 0.1s forwards;
+  animation: display 0.1s forwards;
 }
 
 .hideContent {
-    animation: hide 0.05s forwards;
+  animation: hide 0.05s forwards;
 }
 
 @keyframes display {
-    from {
-        transform: translateY(-1rem);
-        visibility: hidden;
-    }
+  from {
+    transform: translateY(-1rem);
+    visibility: hidden;
+  }
 
-    to {
-        transform: translateY(0);
-        visibility: visible;
-    }
+  to {
+    transform: translateY(0);
+    visibility: visible;
+  }
 }
 
 @keyframes hide {
-    from {
-        transform: translateY(0);
-        visibility: visible;
-    }
+  from {
+    transform: translateY(0);
+    visibility: visible;
+  }
 
-    to {
-        transform: translateY(-1rem);
-        visibility: hidden;
-    }
+  to {
+    transform: translateY(-1rem);
+    visibility: hidden;
+  }
 }
-
-

@@ -1,13 +1,17 @@
 .container {
-  background-image: linear-gradient(45deg, #202d3ead, #030f1dad);
-  height: 90%;
-  width: 77%;
+  background-image: url("../images/map.svg"); /* fallback */
+  background-image: linear-gradient(
+    #fafafa7c,
+    #fafafa8e
+    ),
+    url("../images/map.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 17px;
-  box-shadow: 0 5px 5px 3px #d6b07e21;
 }
 
 .properties {

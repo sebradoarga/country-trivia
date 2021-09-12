@@ -6,7 +6,6 @@ const TableBody = ({
   countries,
   searchText,
   searchedCountry,
-  countryError,
 }) => {
   return (
     <tbody className={TableBodyStyles.container}>
@@ -14,7 +13,15 @@ const TableBody = ({
         countries.map((country) => (
           <TableBodyRow key={country.name} country={country} />
         ))
-      ) : searchedCountry.length === 0 ? (<tr><td><h2 className={TableBodyStyles.error}>Hmm, are you sure that's a country?</h2></td></tr>) : (
+      ) : searchedCountry.length === 0 ? (
+        <tr>
+          <td>
+            <h2 className={TableBodyStyles.error}>
+              Hmm, are you sure that's a country?
+            </h2>
+          </td>
+        </tr>
+      ) : (
         searchedCountry.map((country) => (
           <TableBodyRow key={country.name} country={country} />
         ))
