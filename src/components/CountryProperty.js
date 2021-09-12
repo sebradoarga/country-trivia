@@ -11,7 +11,7 @@ const CountryProperty = ({text}) => {
     return (
         <div className={CountryPropertyStyles.property}>
             <button className={CountryPropertyStyles.name} onClick={clickHandler}>{text}</button>
-            <p className={`${CountryPropertyStyles.content} ${visible ? CountryPropertyStyles.showContent : ""}`}>Bla bla</p>
+            <p className={`${CountryPropertyStyles.content} ${visible ? CountryPropertyStyles.showContent : CountryPropertyStyles.hideContent}`}>Bla bla</p>
         </div>
     )
 }
