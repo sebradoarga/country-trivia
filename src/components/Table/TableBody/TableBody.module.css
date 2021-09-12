@@ -1,11 +1,12 @@
 .error {
     text-align: center;
-    position: relative;
-    left: 150%;
     font-size: 2.5rem;
     line-height: 3.5rem;
-    margin: 2rem;
+    margin: auto;
     font-weight: 400;
+    position: absolute;
+    top: 27rem;
+    width: 90%;
 }
 
 .container::before {

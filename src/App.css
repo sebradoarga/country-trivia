@@ -14,3 +14,7 @@ html {
 body {
   background: #FAFAFA;
 }
+
+html, body, #root, .App {
+  height: 100%;
+}

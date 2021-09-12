@@ -1,0 +1,18 @@
+.container {
+  background-image: linear-gradient(45deg, #202d3ead, #030f1dad);
+  height: 90%;
+  width: 77%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 17px;
+  box-shadow: 0 5px 5px 3px #d6b07e21;
+}
+
+.properties {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+}

@@ -1,9 +1,10 @@
 import "./App.css";
 import {useState, useEffect} from 'react';
-import Header from "./components/Header/Header";
-import Table from "./components/Table/Table";
-import useCountries from "./custom-hooks/useCountries";
+import Home from "./components/Pages/Home";
+import Country from "./components/Pages/Country";
+import useCountries from './custom-hooks/useCountries';
 import useCountry from './custom-hooks/useCountry';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -13,16 +14,9 @@ function App() {
 
   return (
     <div className="App">
-      <Header 
-      searchText={searchText}
-      setSearchText={setSearchText} />
-      <Table
-      loading={loading}
-      error={error} 
-      countries={countries}
-      searchText={searchText}
-      searchedCountry={searchedCountry} 
-      countryError={countryError}/>
+      {/* <Home searchText={searchText} setSearchText={setSearchText} loading={loading} error={error} countries={countries} searchedCountry={searchedCountry} countryError={countryError} /> */
+      <Country countries={countries}/>
+      }
     </div>
   );
 }

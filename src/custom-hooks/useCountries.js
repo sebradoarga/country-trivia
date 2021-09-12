@@ -11,7 +11,7 @@ const useCountries = (setLoading) => {
             const response = await fetch(URL);
             const data = await response.json();
             setCountries(data); 
-            await setLoading(false);   
+            setLoading(false);   
         } catch (error) {
             setError(error);
             setLoading(false);

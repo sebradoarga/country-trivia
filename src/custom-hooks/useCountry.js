@@ -11,7 +11,7 @@ const useCountry = (givenCountry) => {
             try {
                 const response = await fetch(URL);
                 const data = await response.json();
-                const filteredResponse = await data.filter(country => country.name.slice(0, givenCountry.length).toLowerCase() === givenCountry.toLowerCase());
+                const filteredResponse = data.filter(country => country.name.slice(0, givenCountry.length).toLowerCase() === givenCountry.toLowerCase());
                 setCountry(filteredResponse); 
             } catch(error) {
                 setError(error);
