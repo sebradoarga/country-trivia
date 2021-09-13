@@ -1,8 +1,8 @@
 import React from "react";
 import TableBodyRowStyles from "./TableBodyRow.module.css";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-const TableBodyRow = ({ country }) => {
+const TableBodyRow = ({ country, clickedCountry, setClickedCountry }) => {
   const { flag, name, population, region, languages } = country;
 
   return (
@@ -14,7 +14,11 @@ const TableBodyRow = ({ country }) => {
           className={TableBodyRowStyles.img}
         />
       </td>
-      <td className={TableBodyRowStyles.cell}><Link to="/country">{name}</Link></td>
+      <td className={TableBodyRowStyles.cell}>
+        <Link to={`/country/${name}`} onClick={() => setClickedCountry(name)}>
+          {name}
+        </Link>
+      </td>
       <td className={TableBodyRowStyles.cell}>{population}</td>
       <td className={TableBodyRowStyles.cell}>{region}</td>
       <td className={TableBodyRowStyles.cell}>

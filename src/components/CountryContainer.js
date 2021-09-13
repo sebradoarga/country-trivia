@@ -3,46 +3,45 @@ import CountryContainerStyles from "./CountryContainer.module.css";
 import CountryHeader from "./CountryHeader";
 import CountryProperty from "./CountryProperty";
 
-const CountryContainer = ({ countries }) => {
-  console.log("countries", countries);
-
+const CountryContainer = ({ countries, country }) => {
+  console.log("in country container", country);
   return (
     <div className={CountryContainerStyles.container}>
-      <CountryHeader countries={countries} />
+      <CountryHeader country={country} />
       <div className={CountryContainerStyles.properties}>
         <CountryProperty
-          text={"other names"}
-          countries={countries}
+          text={"other spellings"}
+          country={country}
           property={
-            countries.length > 0 ? countries[0].altSpellings : "Loading data..."
+            country.length > 0 ? country[0].altSpellings : "Loading data..."
           }
         />
         <CountryProperty
           text={"region"}
-          countries={countries}
+          country={country}
           property={
-            countries.length > 0 ? countries[0].region : "Loading data..."
+            country.length > 0 ? country[0].region : "Loading data..."
           }
         />
         <CountryProperty
           text={"borders"}
-          countries={countries}
+          country={country}
           property={
-            countries.length > 0 ? countries[0].borders : "Loading data..."
+            country.length > 0 ? country[0].borders : "Loading data..."
           }
         />
         <CountryProperty
           text={"currencies"}
-          countries={countries}
+          country={country}
           property={
-            countries.length > 0 ? countries[0].currencies : "Loading data..."
+            country.length > 0 ? country[0].currencies : "Loading data..."
           }
         />
         <CountryProperty
           text={"languages"}
-          countries={countries}
+          country={country}
           property={
-            countries.length > 0 ? countries[0].languages : "Loading data..."
+            country.length > 0 ? country[0].languages : "Loading data..."
           }
         />
       </div>

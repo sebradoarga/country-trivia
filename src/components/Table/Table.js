@@ -11,6 +11,8 @@ const Table = ({
   searchText,
   searchedCountry,
   countryError,
+  clickedCountry,
+  setClickedCountry,
 }) => {
   return loading ? (
     <LoadingMessage />
@@ -24,6 +26,8 @@ const Table = ({
         searchText={searchText}
         searchedCountry={searchedCountry}
         countryError={countryError}
+        clickedCountry={clickedCountry}
+        setClickedCountry={setClickedCountry}
       />
     </table>
   );

@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Home from "./components/Pages/Home";
 import Country from "./components/Pages/Country";
 import useCountries from "./custom-hooks/useCountries";
@@ -11,6 +11,8 @@ function App() {
   const [error, countries] = useCountries(setLoading);
   const [searchText, setSearchText] = useState("");
   const [countryError, searchedCountry] = useCountry(searchText);
+  const [clickedCountry, setClickedCountry] = useState("");
+  const [displayCountryError, displayCountry] = useCountry(clickedCountry);
 
   return (
     <Router>
@@ -25,10 +27,17 @@ function App() {
               countries={countries}
               searchedCountry={searchedCountry}
               countryError={countryError}
+              clickedCountry={clickedCountry}
+              setClickedCountry={setClickedCountry}
             />
           </Route>
-          <Route to="/country">
-            <Country countries={countries} />
+          <Route to="/country/:name">
+            <Country
+              countries={countries}
+              clickedCountry={clickedCountry}
+              setClickedCountry={setClickedCountry}
+              displayCountry={displayCountry}
+            />
           </Route>
         </Switch>
       </div>

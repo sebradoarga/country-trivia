@@ -6,12 +6,19 @@ const TableBody = ({
   countries,
   searchText,
   searchedCountry,
+  clickedCountry,
+  setClickedCountry,
 }) => {
   return (
     <tbody className={TableBodyStyles.container}>
       {searchText === "" ? (
         countries.map((country) => (
-          <TableBodyRow key={country.name} country={country} />
+          <TableBodyRow
+            key={country.name}
+            country={country}
+            clickedCountry={clickedCountry}
+            setClickedCountry={setClickedCountry}
+          />
         ))
       ) : searchedCountry.length === 0 ? (
         <tr>
@@ -23,7 +30,12 @@ const TableBody = ({
         </tr>
       ) : (
         searchedCountry.map((country) => (
-          <TableBodyRow key={country.name} country={country} />
+          <TableBodyRow
+            key={country.name}
+            country={country}
+            clickedCountry={clickedCountry}
+            setClickedCountry={setClickedCountry}
+          />
         ))
       )}
     </tbody>

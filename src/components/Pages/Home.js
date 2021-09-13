@@ -10,6 +10,8 @@ const Home = ({
   countries,
   searchedCountry,
   countryError,
+  clickedCountry,
+  setClickedCountry
 }) => {
   return (
     <>
@@ -21,6 +23,8 @@ const Home = ({
         searchText={searchText}
         searchedCountry={searchedCountry}
         countryError={countryError}
+        clickedCountry={clickedCountry}
+        setClickedCountry={setClickedCountry}
       />
     </>
   );
