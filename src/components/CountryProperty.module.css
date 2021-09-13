@@ -39,16 +39,13 @@
   padding: 0 1rem;
 }
 
-
 .content::-webkit-scrollbar {
   width: 8px;
 }
 
-
 .content::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-
 
 .content::-webkit-scrollbar-thumb {
   background: #4c9757;

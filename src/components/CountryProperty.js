@@ -9,8 +9,6 @@ const CountryProperty = ({ text, country, property }) => {
     setVisible(!visible);
   };
 
-  console.log("property", property);
-
   return (
     <div className={CountryPropertyStyles.property}>
       <button className={CountryPropertyStyles.name} onClick={clickHandler}>

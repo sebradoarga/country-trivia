@@ -1,7 +1,7 @@
 import React from "react";
-import TableHeadCellStyles from './TableHeadCell.module.css'
+import TableHeadCellStyles from "./TableHeadCell.module.css";
 
-const TableHeadCell = ({text}) => {
+const TableHeadCell = ({ text }) => {
   return <th className={TableHeadCellStyles.cell}>{text}</th>;
 };
 

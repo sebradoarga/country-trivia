@@ -5,7 +5,6 @@ import CountryProperty from "./CountryProperty";
 import ErrorMessage from "./ErrorMessage";
 
 const CountryContainer = ({ country, displayCountryError }) => {
-  console.log("in country container", country);
   return displayCountryError ? (
     <ErrorMessage />
   ) : (

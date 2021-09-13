@@ -1,14 +1,14 @@
 .cell {
-    font-size: 2rem;
-    padding: 2rem 1rem;
-    text-transform: uppercase;
-    color: white;
+  font-size: 2rem;
+  padding: 2rem 1rem;
+  text-transform: uppercase;
+  color: white;
 }
 
 .cell:first-child {
-    width: 24%;
+  width: 24%;
 }
 
 .cell:last-child {
-    width: 13rem;
+  width: 13rem;
 }

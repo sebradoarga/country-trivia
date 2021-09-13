@@ -1,17 +1,17 @@
 .error {
-    text-align: center;
-    font-size: 2.5rem;
-    line-height: 3.5rem;
-    margin: auto;
-    font-weight: 400;
-    position: absolute;
-    top: 27rem;
-    width: 90%;
+  text-align: center;
+  font-size: 2.5rem;
+  line-height: 3.5rem;
+  margin: auto;
+  font-weight: 400;
+  position: absolute;
+  top: 27rem;
+  width: 90%;
 }
 
 .container::before {
-    content:"@";
-    display:block;
-    line-height:1.5rem;
-    text-indent:-99999px;
+  content: "@";
+  display: block;
+  line-height: 1.5rem;
+  text-indent: -99999px;
 }

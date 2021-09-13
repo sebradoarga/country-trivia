@@ -2,7 +2,6 @@ import React from "react";
 import CountryHeaderStyles from "./CountryHeader.module.css";
 
 const CountryHeader = ({ country }) => {
-  console.log(country);
   return (
     <div>
       <img
