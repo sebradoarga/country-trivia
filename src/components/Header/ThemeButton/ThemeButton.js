@@ -4,7 +4,7 @@ import ThemeButtonStyles from "./ThemeButton.module.css";
 
 const ThemeButton = () => {
   return (
-    <button className={ThemeButtonStyles.themeBtn}>
+    <button className={ThemeButtonStyles.themeBtn} aria-label="theme button">
       <FaMoon />
     </button>
   );

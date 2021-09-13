@@ -5,10 +5,10 @@ import { FaShoppingCart } from "react-icons/fa";
 const Cart = () => {
   return (
     <div className={CartStyles.container}>
-      <button className={CartStyles.btn}>
+      <button className={CartStyles.btn} aria-label="cart button">
         <FaShoppingCart />
       </button>
-      <p className={CartStyles.value}>0</p>
+      <p className={CartStyles.value} aria-label="number of items in cart">0</p>
     </div>
   );
 };
