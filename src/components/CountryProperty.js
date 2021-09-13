@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import CountryPropertyStyles from "./CountryProperty.module.css";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 const CountryProperty = ({ text, country, property }) => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   const clickHandler = () => {
     setVisible(!visible);
   };
+
+  console.log("property", property);
 
   return (
     <div className={CountryPropertyStyles.property}>
@@ -21,18 +23,26 @@ const CountryProperty = ({ text, country, property }) => {
             : CountryPropertyStyles.hideContent
         }`}
       >
-        {country.length < 1
-          ? property
-          : property === country[0].currencies ||
-            property === country[0].languages
-          ? property.map((element) => (
-              <li key={uuidv4()} className={CountryPropertyStyles.listItem}>{element.name}</li>
-            ))
-          : Array.isArray(property)
-          ? property.map((element) => (
-              <li key={uuidv4()} className={CountryPropertyStyles.listItem}>{element}</li>
-            ))
-          : property}
+        {country.length < 1 ? (
+          property
+        ) : property.length === 0 ? (
+          <li>none</li>
+        ) : property === country[0].currencies ||
+          property === country[0].languages ? (
+          property.map((element) => (
+            <li key={uuidv4()} className={CountryPropertyStyles.listItem}>
+              {element.name}
+            </li>
+          ))
+        ) : Array.isArray(property) ? (
+          property.map((element) => (
+            <li key={uuidv4()} className={CountryPropertyStyles.listItem}>
+              {element}
+            </li>
+          ))
+        ) : (
+          property
+        )}
       </ul>
     </div>
   );

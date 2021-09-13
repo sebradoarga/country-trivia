@@ -1,6 +1,6 @@
 import React from "react";
 import TableHeadCell from "./TableHeadCell/TableHeadCell";
-import TableHeadStyles from './TableHead.module.css';
+import TableHeadStyles from "./TableHead.module.css";
 
 const TableHead = () => {
   return (

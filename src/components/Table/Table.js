@@ -25,7 +25,6 @@ const Table = ({
         countries={countries}
         searchText={searchText}
         searchedCountry={searchedCountry}
-        countryError={countryError}
         clickedCountry={clickedCountry}
         setClickedCountry={setClickedCountry}
       />

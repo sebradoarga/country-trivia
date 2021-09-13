@@ -11,7 +11,7 @@ const Home = ({
   searchedCountry,
   countryError,
   clickedCountry,
-  setClickedCountry
+  setClickedCountry,
 }) => {
   return (
     <>

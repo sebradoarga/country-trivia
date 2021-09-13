@@ -2,7 +2,7 @@ import React from "react";
 import TableBodyRowStyles from "./TableBodyRow.module.css";
 import { Link } from "react-router-dom";
 
-const TableBodyRow = ({ country, clickedCountry, setClickedCountry }) => {
+const TableBodyRow = ({ country, setClickedCountry }) => {
   const { flag, name, population, region, languages } = country;
 
   return (

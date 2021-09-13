@@ -2,10 +2,13 @@ import React from "react";
 import CountryContainerStyles from "./CountryContainer.module.css";
 import CountryHeader from "./CountryHeader";
 import CountryProperty from "./CountryProperty";
+import ErrorMessage from "./ErrorMessage";
 
-const CountryContainer = ({ countries, country }) => {
+const CountryContainer = ({ country, displayCountryError }) => {
   console.log("in country container", country);
-  return (
+  return displayCountryError ? (
+    <ErrorMessage />
+  ) : (
     <div className={CountryContainerStyles.container}>
       <CountryHeader country={country} />
       <div className={CountryContainerStyles.properties}>
@@ -19,16 +22,12 @@ const CountryContainer = ({ countries, country }) => {
         <CountryProperty
           text={"region"}
           country={country}
-          property={
-            country.length > 0 ? country[0].region : "Loading data..."
-          }
+          property={country.length > 0 ? country[0].region : "Loading data..."}
         />
         <CountryProperty
           text={"borders"}
           country={country}
-          property={
-            country.length > 0 ? country[0].borders : "Loading data..."
-          }
+          property={country.length > 0 ? country[0].borders : "Loading data..."}
         />
         <CountryProperty
           text={"currencies"}
