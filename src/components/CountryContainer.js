@@ -5,6 +5,7 @@ import CountryProperty from "./CountryProperty";
 import ErrorMessage from "./ErrorMessage";
 
 const CountryContainer = ({ country, displayCountryError, countries }) => {
+  console.log("country[0]", country[0]);
   return displayCountryError ? (
     <ErrorMessage />
   ) : (

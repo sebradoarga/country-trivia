@@ -12,14 +12,8 @@ function App() {
   const [searchText, setSearchText] = useState("");
   const [countryError, searchedCountry] = useCountry(searchText);
   const [clickedCountry, setClickedCountry] = useState("");
-  const [displayCountryError, displayCountry] = useCountry(clickedCountry);
-  const [countryLoading, setCountryLoading] = useState(true);
 
-  useEffect(() => {
-    displayCountry.length === 0
-      ? setCountryLoading(true)
-      : setCountryLoading(false);
-  }, [displayCountry]);
+  console.log("app");
 
   return (
     <Router>
@@ -38,15 +32,11 @@ function App() {
               setClickedCountry={setClickedCountry}
             />
           </Route>
-          <Route to="/country/:name">
+          <Route path="/country/:name" exact>
             <Country
               countries={countries}
               clickedCountry={clickedCountry}
               setClickedCountry={setClickedCountry}
-              displayCountryError={displayCountryError}
-              displayCountry={displayCountry}
-              countryLoading={countryLoading}
-              setCountryLoading={setCountryLoading}
             />
           </Route>
         </Switch>

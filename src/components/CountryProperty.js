@@ -13,7 +13,8 @@ const CountryProperty = ({ text, country, property, countries }) => {
     const rightCountry = countries.filter(
       (country) => country.alpha3Code === code
     );
-    return rightCountry[0].name;
+    console.log("rightCountry", rightCountry);
+    return rightCountry[0] === undefined ? code : rightCountry[0].name;
   };
 
   return (
