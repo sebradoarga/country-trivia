@@ -1,6 +1,6 @@
 import React from "react";
-import TableBodyRow from "./TableBodyRow/TableBodyRow";
-import TableBodyStyles from "./TableBody.module.css";
+import TableBodyRow from "./TableBodyRow";
+import styled from "styled-components";
 
 const TableBody = ({
   countries,
@@ -10,7 +10,7 @@ const TableBody = ({
   setClickedCountry,
 }) => {
   return (
-    <tbody className={TableBodyStyles.container}>
+    <tbody>
       {searchText === "" ? (
         countries.map((country) => (
           <TableBodyRow
@@ -23,9 +23,7 @@ const TableBody = ({
       ) : searchedCountry.length === 0 ? (
         <tr>
           <td>
-            <h2 className={TableBodyStyles.error}>
-              Hmm, are you sure that's a country?
-            </h2>
+            <Error>Hmm, are you sure that's a country?</Error>
           </td>
         </tr>
       ) : (
@@ -42,4 +40,14 @@ const TableBody = ({
   );
 };
 
+const Error = styled.h2`
+  text-align: center;
+  font-size: 2.5rem;
+  line-height: 3.5rem;
+  margin: auto;
+  font-weight: 400;
+  position: absolute;
+  top: 27rem;
+  width: 90%;
+`;
 export default TableBody;

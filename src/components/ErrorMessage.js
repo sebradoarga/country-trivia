@@ -1,20 +1,35 @@
 import React from "react";
 import errorImage from "../images/error-image.png";
-import ErrorMessageStyles from "./ErrorMessage.module.css";
+import styled from "styled-components";
 
 const ErrorMessage = () => {
   return (
-    <div className={ErrorMessageStyles.errorContainer}>
-      <h2 className={ErrorMessageStyles.errorText}>
-        Oops, something went wrong.
-      </h2>
-      <img
+    <Container>
+      <Text>Oops, something went wrong.</Text>
+      <Image
         src={errorImage}
         alt="Cartoon of confused man surrounded by question marks"
-        className={ErrorMessageStyles.img}
       />
-    </div>
+    </Container>
   );
 };
+
+const Image = styled.img`
+  width: 27rem;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 9rem;
+`;
+
+const Text = styled.h2`
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #4c9757;
+`;
 
 export default ErrorMessage;

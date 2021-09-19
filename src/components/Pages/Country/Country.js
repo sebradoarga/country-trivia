@@ -1,9 +1,9 @@
 import React from "react";
-import CountryContainer from "../CountryContainer";
-import ReturnButton from "../ReturnButton";
+import CountryContainer from "./CountryContainer";
+import ReturnButton from "./ReturnButton";
 import { Link, useParams } from "react-router-dom";
-import CountryStyles from "./Country.module.css";
-import useCountry from "../../custom-hooks/useCountry";
+import useCountry from "../../../custom-hooks/useCountry";
+import styled from "styled-components";
 
 const Country = ({ countries, displayCountryError }) => {
   const { name } = useParams();
@@ -12,7 +12,7 @@ const Country = ({ countries, displayCountryError }) => {
   console.log("country", country);
 
   return country.length < 1 ? (
-    <h2 className={CountryStyles.loading}>Loading...</h2>
+    <Loading>Loading...</Loading>
   ) : (
     <>
       <Link to="/">
@@ -26,5 +26,15 @@ const Country = ({ countries, displayCountryError }) => {
     </>
   );
 };
+
+const Loading = styled.h2`
+  color: #222;
+  font-size: 3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  letter-spacing: 0.8rem;
+`;
 
 export default Country;

@@ -1,17 +1,18 @@
 import React from "react";
-import CountryContainerStyles from "./CountryContainer.module.css";
 import CountryHeader from "./CountryHeader";
 import CountryProperty from "./CountryProperty";
-import ErrorMessage from "./ErrorMessage";
+import ErrorMessage from "../../ErrorMessage";
+import styled from "styled-components";
+import Background from "../../../images/map.svg";
 
 const CountryContainer = ({ country, displayCountryError, countries }) => {
   console.log("country[0]", country[0]);
   return displayCountryError ? (
     <ErrorMessage />
   ) : (
-    <div className={CountryContainerStyles.container}>
+    <Container>
       <CountryHeader country={country} />
-      <div className={CountryContainerStyles.properties}>
+      <Properties>
         <CountryProperty
           text={"other spellings"}
           country={country}
@@ -48,9 +49,29 @@ const CountryContainer = ({ country, displayCountryError, countries }) => {
           }
           countries={countries}
         />
-      </div>
-    </div>
+      </Properties>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  background-image: url(${Background}); /* fallback */
+  background-image: linear-gradient(#fafafa9f, #fafafa9f), url(${Background});
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+`;
+
+const Properties = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 3rem;
+`;
 
 export default CountryContainer;

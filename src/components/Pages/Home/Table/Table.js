@@ -1,8 +1,8 @@
-import TableHead from "./TableHead/TableHead";
-import TableBody from "./TableBody/TableBody";
-import TableStyles from "./Table.module.css";
-import ErrorMessage from "../ErrorMessage";
-import LoadingMessage from "../LoadingMessage";
+import TableHead from "./TableHead";
+import TableBody from "./TableBody";
+import ErrorMessage from "../../../ErrorMessage";
+import LoadingMessage from "../../../LoadingMessage";
+import styled from "styled-components";
 
 const Table = ({
   loading,
@@ -19,7 +19,7 @@ const Table = ({
   ) : error ? (
     <ErrorMessage />
   ) : (
-    <table className={TableStyles.table} cellSpacing="0" cellPadding="0">
+    <TableTag cellSpacing="0" cellPadding="0">
       <TableHead />
       <TableBody
         countries={countries}
@@ -28,8 +28,18 @@ const Table = ({
         clickedCountry={clickedCountry}
         setClickedCountry={setClickedCountry}
       />
-    </table>
+    </TableTag>
   );
 };
+
+const TableTag = styled.table`
+  width: 90%;
+  table-layout: fixed;
+  min-width: 120rem;
+  border: 3px solid #4c9757;
+  border-radius: 5px;
+  margin: 2rem auto;
+  box-shadow: 0 10px 5px 3px rgba(0, 0, 0, 0.3);
+`;
 
 export default Table;

@@ -1,20 +1,24 @@
 import React from "react";
-import TableHeadCell from "./TableHeadCell/TableHeadCell";
-import TableHeadStyles from "./TableHead.module.css";
+import TableHeadCell from "./TableHeadCell";
+import styled from "styled-components";
 
 const TableHead = () => {
   return (
     <thead>
-      <tr className={TableHeadStyles.row}>
+      <Row>
         <TableHeadCell text={"Flag"} />
         <TableHeadCell text={"Name"} />
         <TableHeadCell text={"Population"} />
         <TableHeadCell text={"Region"} />
         <TableHeadCell text={"Languages"} />
         <TableHeadCell text={""} />
-      </tr>
+      </Row>
     </thead>
   );
 };
+
+const Row = styled.tr`
+  background: #4c9757;
+`;
 
 export default TableHead;

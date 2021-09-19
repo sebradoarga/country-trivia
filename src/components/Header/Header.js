@@ -1,17 +1,25 @@
 import React from "react";
-import Cart from "./Cart/Cart";
-import SearchBar from "./SearchBar/SearchBar";
-import ThemeButton from "./ThemeButton/ThemeButton";
-import HeaderStyles from "./Header.module.css";
+import Cart from "./Cart";
+import SearchBar from "./SearchBar";
+import ThemeButton from "./ThemeButton";
+import styled from "styled-components";
 
 const Header = ({ searchText, setSearchText }) => {
   return (
-    <header className={HeaderStyles.header}>
+    <HeaderTag>
       <ThemeButton />
       <SearchBar searchText={searchText} setSearchText={setSearchText} />
       <Cart />
-    </header>
+    </HeaderTag>
   );
 };
+
+const HeaderTag = styled.header`
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+`;
 
 export default Header;

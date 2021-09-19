@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import Home from "./components/Pages/Home";
-import Country from "./components/Pages/Country";
+import Home from "./components/Pages/Home/Home";
+import Country from "./components/Pages/Country/Country";
 import useCountries from "./custom-hooks/useCountries";
 import useCountry from "./custom-hooks/useCountry";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
