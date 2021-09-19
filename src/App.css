@@ -60,3 +60,21 @@ a:visited {
     visibility: hidden;
   }
 }
+
+@keyframes widen {
+  from {
+    width: 1rem;
+  }
+  to {
+    width: 6rem;
+  }
+}
+
+@keyframes shrink {
+  from {
+    width: 2rem;
+  }
+  to {
+    width: 1rem;
+  }
+}

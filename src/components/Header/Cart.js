@@ -1,12 +1,12 @@
 import React from "react";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import styled from "styled-components";
 
 const Cart = () => {
   return (
     <Container>
       <CartBtn aria-label="cart button">
-        <FaShoppingCart />
+        <FaStar />
       </CartBtn>
       <Value aria-label="number of items in cart">0</Value>
     </Container>

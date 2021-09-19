@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { FaStar } from "react-icons/fa";
 
-const TableBodyRow = ({ country, setClickedCountry }) => {
+const TableBodyRow = ({ country }) => {
   const { flag, name, population, region, languages } = country;
 
   return (
@@ -11,11 +12,9 @@ const TableBodyRow = ({ country, setClickedCountry }) => {
         <Image src={`${flag}`} alt={`Flag of ${name}`} />
       </Cell>
       <Cell>
-        <Link to={`/country/${name}`} onClick={() => setClickedCountry(name)}>
-          {name}
-        </Link>
+        <Link to={`/country/${name}`}>{name}</Link>
       </Cell>
-      <Cell>{population}</Cell>
+      <Cell>{`${(population / 1000000).toFixed(2)} M`}</Cell>
       <Cell>{region}</Cell>
       <Cell>
         <List>
@@ -25,7 +24,9 @@ const TableBodyRow = ({ country, setClickedCountry }) => {
         </List>
       </Cell>
       <Cell>
-        <Button>Buy</Button>
+        <Button>
+          <FaStar />
+        </Button>
       </Cell>
     </Row>
   );
@@ -40,6 +41,10 @@ const Cell = styled.td`
 
   a {
     transition: all 0.1s ease-in-out;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.1rem;
+    line-height: 2.5rem;
 
     &:hover {
       color: #4c9757;
@@ -61,19 +66,17 @@ const Image = styled.img`
 `;
 
 const Button = styled.button`
-  padding: 1rem 2rem;
-  border-radius: 5px;
-  background: #4c9757;
+  background: transparent;
   border: none;
-  color: white;
-  font-size: 2rem;
+  font-size: 3rem;
   margin: auto;
   display: block;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.3s ease;
 
   &:hover {
-    background: #61bb6e;
     cursor: pointer;
+    color: #4c9757;
+    transform: scale(1.2);
   }
 `;
 

@@ -4,30 +4,15 @@ import ErrorMessage from "../../../ErrorMessage";
 import LoadingMessage from "../../../LoadingMessage";
 import styled from "styled-components";
 
-const Table = ({
-  loading,
-  error,
-  countries,
-  searchText,
-  searchedCountry,
-  countryError,
-  clickedCountry,
-  setClickedCountry,
-}) => {
-  return loading ? (
+const Table = ({ error, countries, searchText }) => {
+  return countries.length < 1 ? (
     <LoadingMessage />
   ) : error ? (
     <ErrorMessage />
   ) : (
     <TableTag cellSpacing="0" cellPadding="0">
       <TableHead />
-      <TableBody
-        countries={countries}
-        searchText={searchText}
-        searchedCountry={searchedCountry}
-        clickedCountry={clickedCountry}
-        setClickedCountry={setClickedCountry}
-      />
+      <TableBody countries={countries} searchText={searchText} />
     </TableTag>
   );
 };

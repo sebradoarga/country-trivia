@@ -6,20 +6,13 @@ const defaultState = {
 };
 
 const reducer = (state = defaultState, action) => {
-  //action = {type: "action type", payload: {...}}
-  //state = {cart: []}
   switch (action.type) {
     case "INSERT_COUNTRY":
-      const incomingCountry = action.payload; // country object {name: "", population: 12323, borders: "", languages: , flags}
+      const incomingCountry = action.payload;
       const incomingName = incomingCountry.name;
-      // existCountry will be a country object, or undefined if nothing matches the condition
-      const existCountry = state.cart.find((country) => {
-        if (incomingName === country.name) {
-          return true;
-        }
-
-        return false;
-      });
+      const existCountry = state.cart.find(
+        (country) => incomingName === country.name
+      );
 
       if (existCountry) {
         return state;
@@ -31,10 +24,12 @@ const reducer = (state = defaultState, action) => {
       }
 
     case "REMOVE_COUNTRY":
-      return {
-        ...state,
-        cart: [{ countryName: "Finland" }],
-      };
+      const removedCountry = action.payload;
+      const newState = state.cart.filter(
+        (country) => country.name !== removedCountry
+      );
+      state = newState;
+      return state;
 
     case "FETCH_COUNTRIES_SUCCESS":
       const countriesPayload = action.payload;
@@ -63,11 +58,3 @@ const reducer = (state = defaultState, action) => {
 };
 
 export default reducer;
-
-// const action = {
-//   type: 'INSERT_COUNTRY',
-//   payload: { countryName: 'Finland' },
-// }
-
-// const result = reducer(undefined, action)
-//result = {cart: [{countryName: 'Finland}]}

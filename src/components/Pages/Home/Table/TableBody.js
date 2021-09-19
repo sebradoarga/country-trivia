@@ -1,39 +1,25 @@
-import React from "react";
 import TableBodyRow from "./TableBodyRow";
 import styled from "styled-components";
+import useCountry from "../../../../custom-hooks/useCountry";
 
-const TableBody = ({
-  countries,
-  searchText,
-  searchedCountry,
-  clickedCountry,
-  setClickedCountry,
-}) => {
+const TableBody = ({ countries, searchText }) => {
+  const [countryError, searchedCountry] = useCountry(searchText);
+
   return (
     <tbody>
       {searchText === "" ? (
         countries.map((country) => (
-          <TableBodyRow
-            key={country.name}
-            country={country}
-            clickedCountry={clickedCountry}
-            setClickedCountry={setClickedCountry}
-          />
+          <TableBodyRow key={country.name} country={country} />
         ))
       ) : searchedCountry.length === 0 ? (
         <tr>
           <td>
-            <Error>Hmm, are you sure that's a country?</Error>
+            <Error>Couldn't find country</Error>
           </td>
         </tr>
       ) : (
         searchedCountry.map((country) => (
-          <TableBodyRow
-            key={country.name}
-            country={country}
-            clickedCountry={clickedCountry}
-            setClickedCountry={setClickedCountry}
-          />
+          <TableBodyRow key={country.name} country={country} />
         ))
       )}
     </tbody>
