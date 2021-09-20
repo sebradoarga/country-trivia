@@ -14,9 +14,11 @@ const FavoritedCountry = ({ flag, name }) => {
   return (
     <Container>
       <Image src={flag} />
-      <Link to={`/country/${name}`}>
-        <Name>{name}</Name>
-      </Link>
+      <Name>
+        <Link to={`/country/${name}`} style={{ color: "#4c9757" }}>
+          {name}
+        </Link>
+      </Name>
       <RemoveBtn onClick={() => handleClick(name)}>
         <FaTrash />
       </RemoveBtn>
@@ -42,7 +44,6 @@ const Image = styled.img`
 
 const Name = styled.h3`
   font-size: 1.8rem;
-  color: #4c9757;
   transition: all 0.3s ease;
   text-align: center;
   margin: 0 0.5rem;

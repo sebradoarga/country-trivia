@@ -2,16 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FaStar } from "react-icons/fa";
-import { useDispatch } from "react-redux";
-import { favoriteCountry } from "../../../../redux/action";
+import { useSelector, useDispatch } from "react-redux";
+import { favoriteCountry, removeCountry } from "../../../../redux/action";
 
 const TableBodyRow = ({ country }) => {
   const { flag, name, population, region, languages } = country;
   const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
 
-  const addToFavorites = (country) => {
-    console.log("ready for dispatch");
-    dispatch(favoriteCountry(country));
+  const addToFavorites = (country, e) => {
+    if (!Boolean(cart.find((country) => country.name === name))) {
+      dispatch(favoriteCountry(country));
+    } else {
+      dispatch(removeCountry(name));
+    }
   };
 
   return (
@@ -20,7 +24,9 @@ const TableBodyRow = ({ country }) => {
         <Image src={`${flag}`} alt={`Flag of ${name}`} />
       </Cell>
       <Cell>
-        <Link to={`/country/${name}`}>{name}</Link>
+        <Link to={`/country/${name}`} style={{ textDecoration: "underline" }}>
+          {name}
+        </Link>
       </Cell>
       <Cell>{`${(population / 1000000).toFixed(2)} M`}</Cell>
       <Cell>{region}</Cell>
@@ -32,8 +38,14 @@ const TableBodyRow = ({ country }) => {
         </List>
       </Cell>
       <Cell>
-        <Button onClick={() => addToFavorites(country)}>
-          <FaStar />
+        <Button onClick={(e) => addToFavorites(country, e)}>
+          <FaStar
+            className={
+              Boolean(cart.find((country) => country.name === name))
+                ? "favorited"
+                : "unfavorited"
+            }
+          />
         </Button>
       </Cell>
     </Row>
@@ -80,6 +92,7 @@ const Button = styled.button`
   margin: auto;
   display: block;
   transition: all 0.3s ease;
+  color: #222;
 
   &:hover {
     cursor: pointer;

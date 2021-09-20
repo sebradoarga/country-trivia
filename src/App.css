@@ -64,8 +64,12 @@ a:visited {
   transition: 0.3s ease;
 }
 
-.favoriteBtn {
-  color: green;
+.favorited {
+  color: #4c9757;
+}
+
+.unfavorited {
+  color: #222;
 }
 
 @keyframes display {

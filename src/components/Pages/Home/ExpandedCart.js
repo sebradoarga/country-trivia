@@ -28,15 +28,19 @@ const ExpandedCart = ({ expanded, setExpanded }) => {
           />
         </span>
       </Heading>
-      <Countries>
-        {cart.map((country) => (
-          <FavoritedCountry
-            key={country.name}
-            flag={country.flag}
-            name={country.name}
-          />
-        ))}
-      </Countries>
+      {cart.length > 0 ? (
+        <Countries>
+          {cart.map((country) => (
+            <FavoritedCountry
+              key={country.name}
+              flag={country.flag}
+              name={country.name}
+            />
+          ))}
+        </Countries>
+      ) : (
+        <NoCountries>You don't have any favorite countries.</NoCountries>
+      )}
     </Container>
   );
 };
@@ -104,6 +108,12 @@ const Countries = styled.div`
     border-radius: 10px;
     height: 5rem;
   }
+`;
+
+const NoCountries = styled.p`
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 5rem;
 `;
 
 export default ExpandedCart;
