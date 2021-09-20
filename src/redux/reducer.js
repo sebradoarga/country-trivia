@@ -28,8 +28,12 @@ const reducer = (state = defaultState, action) => {
       const newState = state.cart.filter(
         (country) => country.name !== removedCountry
       );
-      state = newState;
-      return state;
+      console.log("newState", newState);
+      console.log("state", state);
+      return {
+        ...state,
+        cart: newState,
+      };
 
     case "FETCH_COUNTRIES_SUCCESS":
       const countriesPayload = action.payload;

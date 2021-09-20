@@ -15,6 +15,21 @@ body {
   background: #fafafa;
 }
 
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #4c9757;
+  border-radius: 10px;
+  min-height: 6rem;
+}
+
 html,
 body,
 #root,
@@ -35,6 +50,22 @@ a:visited {
 
 .hideContent {
   animation: hide 0.05s forwards;
+}
+
+.expanded {
+  visibility: visible;
+  transform: translateX(0);
+  transition: 0.1s ease;
+}
+
+.shrunk {
+  visibility: hidden;
+  transform: translateX(999px);
+  transition: 0.3s ease;
+}
+
+.favoriteBtn {
+  color: green;
 }
 
 @keyframes display {
@@ -58,23 +89,5 @@ a:visited {
   to {
     transform: translateY(-1rem);
     visibility: hidden;
-  }
-}
-
-@keyframes widen {
-  from {
-    width: 1rem;
-  }
-  to {
-    width: 6rem;
-  }
-}
-
-@keyframes shrink {
-  from {
-    width: 2rem;
-  }
-  to {
-    width: 1rem;
   }
 }

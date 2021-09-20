@@ -4,12 +4,12 @@ import SearchBar from "./SearchBar";
 import ThemeButton from "./ThemeButton";
 import styled from "styled-components";
 
-const Header = ({ searchText, setSearchText }) => {
+const Header = ({ searchText, setSearchText, setExpanded }) => {
   return (
     <HeaderTag>
       <ThemeButton />
       <SearchBar searchText={searchText} setSearchText={setSearchText} />
-      <Cart />
+      <Cart setExpanded={setExpanded} />
     </HeaderTag>
   );
 };

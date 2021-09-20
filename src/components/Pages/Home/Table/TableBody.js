@@ -14,7 +14,9 @@ const TableBody = ({ countries, searchText }) => {
       ) : searchedCountry.length === 0 ? (
         <tr>
           <td>
-            <Error>Couldn't find country</Error>
+            <Error>
+              Sorry, we couldn't find any countries matching that name.
+            </Error>
           </td>
         </tr>
       ) : (

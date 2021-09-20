@@ -2,9 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FaStar } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { favoriteCountry } from "../../../../redux/action";
 
 const TableBodyRow = ({ country }) => {
   const { flag, name, population, region, languages } = country;
+  const dispatch = useDispatch();
+
+  const addToFavorites = (country) => {
+    console.log("ready for dispatch");
+    dispatch(favoriteCountry(country));
+  };
 
   return (
     <Row>
@@ -24,7 +32,7 @@ const TableBodyRow = ({ country }) => {
         </List>
       </Cell>
       <Cell>
-        <Button>
+        <Button onClick={() => addToFavorites(country)}>
           <FaStar />
         </Button>
       </Cell>

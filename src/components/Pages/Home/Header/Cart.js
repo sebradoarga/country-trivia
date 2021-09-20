@@ -1,20 +1,28 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
-const Cart = () => {
+const Cart = ({ setExpanded }) => {
+  const cart = useSelector((state) => state.cart);
+
+  const clickHandler = () => {
+    setExpanded(true);
+  };
+
   return (
     <Container>
-      <CartBtn aria-label="cart button">
+      <CartBtn aria-label="cart button" onClick={clickHandler}>
         <FaStar />
       </CartBtn>
-      <Value aria-label="number of items in cart">0</Value>
+      <Value aria-label="number of items in cart">{cart.length}</Value>
     </Container>
   );
 };
 
 const Container = styled.div`
   display: flex;
+  align-items: center;
   height: 4rem;
   background: #4c9757;
   width: 5rem;
