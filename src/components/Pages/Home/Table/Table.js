@@ -36,6 +36,7 @@ const TableTag = styled.table`
   border-radius: 10px;
   overflow: hidden;
   margin: 2rem auto;
+  margin-top: 0;
   box-shadow: 0 10px 5px 3px rgba(0, 0, 0, 0.3);
 `;
 

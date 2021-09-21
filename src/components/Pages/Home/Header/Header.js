@@ -4,6 +4,7 @@ import SearchBar from "./SearchBar";
 import ThemeButton from "./ThemeButton";
 import styled from "styled-components";
 import Hero from "./Hero";
+import { FaSearch } from "react-icons/fa";
 
 const Header = ({ searchText, setSearchText, setExpanded }) => {
   return (
@@ -14,6 +15,9 @@ const Header = ({ searchText, setSearchText, setExpanded }) => {
       </Navbar>
       <Hero />
       <Wrapper>
+        <FaSearch
+          style={{ fontSize: "2.8rem", marginLeft: "1rem", color: "#222" }}
+        />
         <SearchBar searchText={searchText} setSearchText={setSearchText} />
       </Wrapper>
     </HeaderTag>
@@ -36,6 +40,13 @@ const Navbar = styled.nav`
   justify-content: space-between;
 `;
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  background: white;
+  border: 2px solid #222;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+`;
 
 export default Header;
