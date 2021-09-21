@@ -3,7 +3,7 @@ import Header from "./Header/Header";
 import ExpandedCart from "./ExpandedCart";
 import Table from "./Table/Table";
 
-const Home = ({ error, countries }) => {
+const Home = () => {
   const [searchText, setSearchText] = useState("");
   const [expanded, setExpanded] = useState(false);
 
@@ -14,7 +14,7 @@ const Home = ({ error, countries }) => {
         setSearchText={setSearchText}
         setExpanded={setExpanded}
       />
-      <Table error={error} countries={countries} searchText={searchText} />
+      <Table searchText={searchText} />
       <ExpandedCart expanded={expanded} setExpanded={setExpanded} />
     </>
   );

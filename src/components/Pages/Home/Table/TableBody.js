@@ -2,12 +2,13 @@ import TableBodyRow from "./TableBodyRow";
 import styled from "styled-components";
 import useCountry from "../../../../custom-hooks/useCountry";
 
-const TableBody = ({ countries, searchText }) => {
+const TableBody = ({ countries, error, searchText }) => {
   const [countryError, searchedCountry] = useCountry(searchText);
 
   return (
     <tbody>
       {searchText === "" ? (
+        countries.length > 0 &&
         countries.map((country) => (
           <TableBodyRow key={country.name} country={country} />
         ))

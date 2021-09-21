@@ -1,9 +1,19 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { getCountries } from "../../../redux/action";
 
-const CountryProperty = ({ text, country, property, countries }) => {
+const CountryProperty = ({ text, country, property }) => {
   const [visible, setVisible] = useState(true);
+
+  const dispatch = useDispatch();
+  const countries = useSelector((state) => state.countries);
+  const error = useSelector((state) => state.error);
+
+  useEffect(() => {
+    dispatch(getCountries());
+  }, []);
 
   const clickHandler = () => {
     setVisible(!visible);

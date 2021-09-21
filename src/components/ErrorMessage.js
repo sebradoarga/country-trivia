@@ -22,7 +22,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 9rem;
+  margin: 4rem 0;
 `;
 
 const Text = styled.h2`

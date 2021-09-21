@@ -25,21 +25,6 @@ body {
   background-repeat: no-repeat;
 }
 
-body::-webkit-scrollbar {
-  width: 12px;
-}
-
-body::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: #4c9757;
-  border-radius: 10px;
-  min-height: 6rem;
-}
-
 a,
 a:hover,
 a:visited {

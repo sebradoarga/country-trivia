@@ -5,7 +5,7 @@ import ErrorMessage from "../../ErrorMessage";
 import styled from "styled-components";
 import Background from "../../../images/map.svg";
 
-const CountryContainer = ({ country, displayCountryError, countries }) => {
+const CountryContainer = ({ country, displayCountryError }) => {
   console.log("country[0]", country[0]);
   return displayCountryError ? (
     <ErrorMessage />
@@ -19,19 +19,16 @@ const CountryContainer = ({ country, displayCountryError, countries }) => {
           property={
             country.length > 0 ? country[0].altSpellings : "Loading data..."
           }
-          countries={countries}
         />
         <CountryProperty
           text={"region"}
           country={country}
           property={country.length > 0 ? country[0].region : "Loading data..."}
-          countries={countries}
         />
         <CountryProperty
           text={"borders"}
           country={country}
           property={country.length > 0 ? country[0].borders : "Loading data..."}
-          countries={countries}
         />
         <CountryProperty
           text={"currencies"}
@@ -39,7 +36,6 @@ const CountryContainer = ({ country, displayCountryError, countries }) => {
           property={
             country.length > 0 ? country[0].currencies : "Loading data..."
           }
-          countries={countries}
         />
         <CountryProperty
           text={"languages"}
@@ -47,7 +43,6 @@ const CountryContainer = ({ country, displayCountryError, countries }) => {
           property={
             country.length > 0 ? country[0].languages : "Loading data..."
           }
-          countries={countries}
         />
       </Properties>
     </Container>

@@ -5,7 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import useCountry from "../../../custom-hooks/useCountry";
 import styled from "styled-components";
 
-const Country = ({ countries, displayCountryError }) => {
+const Country = ({ displayCountryError }) => {
   const { name } = useParams();
   console.log("name", name);
   const country = useCountry(name)[1];
@@ -19,7 +19,6 @@ const Country = ({ countries, displayCountryError }) => {
         <ReturnButton />
       </Link>
       <CountryContainer
-        countries={countries}
         country={country}
         displayCountryError={displayCountryError}
       />

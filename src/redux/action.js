@@ -13,9 +13,9 @@ export const removeCountry = (countryName) => {
 };
 
 export const getCountries = () => {
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
     try {
-      const data = await fetch("https://restcountries.eu/rest/v2/all");
+      const data = await fetch("https://restcountries.eu/rest/v2/");
       const countriesList = await data.json();
       console.log("countries", countriesList);
 
@@ -36,7 +36,7 @@ export const fetchCountriesSuccess = (data) => {
 
 // -----
 export const getOneCountry = (countryName) => {
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
     const data = await fetch(
       `https://restcountries.eu/rest/v2/name/${countryName}`
     );
