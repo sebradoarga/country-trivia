@@ -10,10 +10,12 @@ const Header = ({ searchText, setSearchText, setExpanded }) => {
     <HeaderTag className="home-header">
       <Navbar>
         <ThemeButton />
-        <SearchBar searchText={searchText} setSearchText={setSearchText} />
         <Cart setExpanded={setExpanded} />
       </Navbar>
       <Hero />
+      <Wrapper>
+        <SearchBar searchText={searchText} setSearchText={setSearchText} />
+      </Wrapper>
     </HeaderTag>
   );
 };
@@ -23,15 +25,17 @@ const HeaderTag = styled.header`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 42rem;
+  height: 45rem;
 `;
 
 const Navbar = styled.nav`
   background: transparent;
-  padding: 3rem 0;
+  padding: 3rem 0 0 0;
   display: flex;
   width: 100%;
   justify-content: space-between;
 `;
+
+const Wrapper = styled.div``;
 
 export default Header;

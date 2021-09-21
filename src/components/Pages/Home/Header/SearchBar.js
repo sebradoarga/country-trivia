@@ -13,11 +13,11 @@ const SearchBar = ({ searchText, setSearchText }) => {
 };
 
 const Search = styled.input`
-  margin: 0 10rem;
-  height: 4rem;
-  width: 27rem;
+  margin: 2rem 0;
+  height: 5.5rem;
+  width: 57rem;
   padding-left: 1rem;
-  font-size: 1.8rem;
+  font-size: 2.8rem;
   border-radius: 5px;
 
   &:focus {
