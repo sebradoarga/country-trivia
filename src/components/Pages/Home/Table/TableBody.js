@@ -1,9 +1,17 @@
+import { useEffect } from "react";
 import TableBodyRow from "./TableBodyRow";
 import styled from "styled-components";
-import useCountry from "../../../../custom-hooks/useCountry";
+import { useDispatch, useSelector } from "react-redux";
+import { getOneCountry } from "../../../../redux/action";
 
-const TableBody = ({ countries, error, searchText }) => {
-  const [countryError, searchedCountry] = useCountry(searchText);
+const TableBody = ({ countries, searchText }) => {
+  const dispatch = useDispatch();
+  const searchedCountry = useSelector((state) => state.country);
+  console.log("searchedCountry", searchedCountry[0]);
+
+  useEffect(() => {
+    dispatch(getOneCountry(searchText));
+  }, [searchText]);
 
   return (
     <tbody>
@@ -12,7 +20,7 @@ const TableBody = ({ countries, error, searchText }) => {
         countries.map((country) => (
           <TableBodyRow key={country.name} country={country} />
         ))
-      ) : searchedCountry.length === 0 ? (
+      ) : !searchedCountry[0] ? (
         <tr>
           <td>
             <Error>
@@ -36,7 +44,7 @@ const Error = styled.h2`
   margin: auto;
   font-weight: 400;
   position: absolute;
-  top: 27rem;
   width: 90%;
+  bottom: 5rem;
 `;
 export default TableBody;

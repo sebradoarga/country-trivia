@@ -43,7 +43,7 @@ const reducer = (state = defaultState, action) => {
       };
 
     case "FETCH_ONE_COUNTRY_SUCCESS":
-      const countryData = action.payload[0];
+      const countryData = action.payload;
       return {
         ...state,
         country: countryData,
