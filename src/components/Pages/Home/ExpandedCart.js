@@ -55,6 +55,7 @@ const Container = styled.aside`
   right: 0;
   padding: 10rem 2rem 3rem 2rem;
   border-left: 7px solid #4c9757;
+  background-image: linear-gradient(0, #d9f9daa1, white);
 `;
 
 const CloseBtn = styled.button`

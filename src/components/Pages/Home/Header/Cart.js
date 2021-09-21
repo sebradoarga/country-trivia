@@ -24,7 +24,6 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   height: 4rem;
-  background: #4c9757;
   width: 5rem;
   border-radius: 5px;
   margin: 0 10rem;
@@ -34,23 +33,23 @@ const Container = styled.div`
 const CartBtn = styled.button`
   background: transparent;
   border: none;
-  color: white;
+  color: #4c9757;
   padding: 1rem;
-  font-size: 2rem;
+  font-size: 3rem;
   transition: all 0.1s ease-in-out;
 
   &:hover {
     cursor: pointer;
-    transform: scale(1.1);
+    color: #4c9757cb;
   }
 `;
 
 const Value = styled.p`
-  color: white;
-  font-size: 2rem;
-  padding: 1rem;
-  background: #4c9757;
+  color: #222;
+  font-size: 2.5rem;
   border-radius: 5px;
+  position: relative;
+  bottom: 0.2rem;
 `;
 
 export default Cart;

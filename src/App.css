@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merienda&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Birthstone&display=swap");
 
 * {
   box-sizing: border-box;
@@ -7,12 +9,20 @@
   font-family: "Josefin Sans", sans-serif;
 }
 
+html,
+body,
+#root,
+.App {
+  min-height: 100%;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
-  background: #fafafa;
+  background-image: linear-gradient(to right, #d9f9daa1, white);
+  background-repeat: no-repeat;
 }
 
 body::-webkit-scrollbar {
@@ -28,13 +38,6 @@ body::-webkit-scrollbar-thumb {
   background: #4c9757;
   border-radius: 10px;
   min-height: 6rem;
-}
-
-html,
-body,
-#root,
-.App {
-  height: 100%;
 }
 
 a,

@@ -19,6 +19,7 @@ const Search = styled.input`
   padding-left: 1rem;
   font-size: 1.8rem;
   border-radius: 5px;
+  display: none;
 
   &:focus {
     outline: none;

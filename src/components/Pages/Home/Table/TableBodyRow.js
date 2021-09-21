@@ -73,6 +73,7 @@ const Cell = styled.td`
 `;
 
 const Row = styled.tr`
+  background: #fef9f9;
   &:last-child td {
     border-bottom: none;
   }

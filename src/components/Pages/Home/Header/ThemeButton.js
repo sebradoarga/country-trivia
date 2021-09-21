@@ -15,11 +15,11 @@ const Button = style.button`
   background: transparent;
   border: none;
   font-size: 3rem;
-  color: #4c9757;
+  color: #4C9757;
   transition: all 0.1s ease-in-out;
 
   &:hover {
-      color: #61bb6e;
+      color: #4c9757cb;
       cursor: pointer;
 
   }

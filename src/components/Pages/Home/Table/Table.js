@@ -21,8 +21,8 @@ const TableTag = styled.table`
   width: 90%;
   table-layout: fixed;
   min-width: 120rem;
-  border: 3px solid #4c9757;
-  border-radius: 5px;
+  border-radius: 10px;
+  overflow: hidden;
   margin: 2rem auto;
   box-shadow: 0 10px 5px 3px rgba(0, 0, 0, 0.3);
 `;

@@ -18,7 +18,7 @@ const TableHead = () => {
 };
 
 const Row = styled.tr`
-  background: #4c9757;
+  background-image: linear-gradient(45deg, #4c9757, #009573);
 `;
 
 export default TableHead;

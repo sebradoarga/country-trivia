@@ -27,7 +27,7 @@ const FavoritedCountry = ({ flag, name }) => {
 };
 
 const Container = styled.div`
-  background: #fafafa;
+  background: transparent;
   width: 100%;
   border-radius: 10px;
   margin: 2rem 0;
