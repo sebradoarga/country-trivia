@@ -1,19 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
-import { getCountries } from "../../../redux/action";
+import { useSelector } from "react-redux";
 
 const CountryProperty = ({ text, country, property }) => {
   const [visible, setVisible] = useState(true);
+  const countries = useSelector((state) => state.countryReducer.countries);
 
-  const dispatch = useDispatch();
-  const countries = useSelector((state) => state.countries);
-  const error = useSelector((state) => state.error);
-
-  useEffect(() => {
-    dispatch(getCountries());
-  }, []);
+  console.log("property", property);
 
   const clickHandler = () => {
     setVisible(!visible);
@@ -23,7 +17,6 @@ const CountryProperty = ({ text, country, property }) => {
     const rightCountry = countries.filter(
       (country) => country.alpha3Code === code
     );
-    console.log("rightCountry", rightCountry);
     return rightCountry[0] === undefined ? code : rightCountry[0].name;
   };
 
@@ -33,7 +26,7 @@ const CountryProperty = ({ text, country, property }) => {
       <Content className={`${visible ? "showContent" : "hideContent"}`}>
         {country.length < 1 ? (
           property
-        ) : property.length === 0 ? (
+        ) : property.length === 0 || property === "Loading data..." ? (
           <li>none</li>
         ) : property === country[0].borders ? (
           property.map((element) => (

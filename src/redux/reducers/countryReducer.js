@@ -5,7 +5,7 @@ const defaultState = {
   error: null,
 };
 
-const reducer = (state = defaultState, action) => {
+const countryReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "INSERT_COUNTRY":
       const incomingCountry = action.payload;
@@ -61,4 +61,4 @@ const reducer = (state = defaultState, action) => {
   }
 };
 
-export default reducer;
+export default countryReducer;

@@ -1,15 +1,21 @@
-import React from "react";
+import { useEffect } from "react";
 import CountryContainer from "./CountryContainer";
 import ReturnButton from "./ReturnButton";
 import { Link, useParams } from "react-router-dom";
-import useCountry from "../../../custom-hooks/useCountry";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { getOneCountry } from "../../../redux/action";
 
 const Country = ({ displayCountryError }) => {
   const { name } = useParams();
   console.log("name", name);
-  const country = useCountry(name)[1];
-  console.log("country", country);
+  const country = useSelector((state) => state.countryReducer.country);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getOneCountry(name));
+  }, []);
 
   return country.length < 1 ? (
     <Loading>Loading...</Loading>

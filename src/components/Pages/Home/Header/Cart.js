@@ -4,7 +4,8 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 
 const Cart = ({ setExpanded }) => {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.countryReducer.cart);
+  const theme = useSelector((state) => state.themeReducer.theme);
 
   const clickHandler = () => {
     setExpanded(true);
@@ -15,7 +16,12 @@ const Cart = ({ setExpanded }) => {
       <CartBtn aria-label="cart button" onClick={clickHandler}>
         <FaStar />
       </CartBtn>
-      <Value aria-label="number of items in cart">{cart.length}</Value>
+      <Value
+        aria-label="number of items in cart"
+        className={theme === "dark" && "dark-mode"}
+      >
+        {cart.length}
+      </Value>
     </Container>
   );
 };
@@ -50,6 +56,9 @@ const Value = styled.p`
   border-radius: 5px;
   position: relative;
   bottom: 0.2rem;
+  &.dark-mode {
+    color: white;
+  }
 `;
 
 export default Cart;

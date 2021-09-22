@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { FaStar } from "react-icons/fa";
 
 const ExpandedCart = ({ expanded, setExpanded }) => {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.countryReducer.cart);
 
   console.log("cart", cart);
 

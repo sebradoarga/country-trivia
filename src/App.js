@@ -2,11 +2,14 @@ import "./App.css";
 import Home from "./components/Pages/Home/Home";
 import Country from "./components/Pages/Country/Country";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 function App() {
+  const theme = useSelector((state) => state.themeReducer.theme);
   return (
     <Router>
-      <div className="App">
+      <AppContainer className={`App ${theme === "dark" && "dark-mode"}`}>
         <Switch>
           <Route exact path="/">
             <Home />
@@ -15,9 +18,18 @@ function App() {
             <Country />
           </Route>
         </Switch>
-      </div>
+      </AppContainer>
     </Router>
   );
 }
 
 export default App;
+
+const AppContainer = styled.div`
+  background-image: linear-gradient(to right, #d9f9daa1, white);
+  background-repeat: no-repeat;
+
+  &.dark-mode {
+    background-image: linear-gradient(to right, #060805, #1a1a1a);
+  }
+`;

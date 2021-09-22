@@ -1,11 +1,20 @@
 import React from "react";
-import { FaMoon } from "react-icons/fa";
+import { FaMoon, FaSun } from "react-icons/fa";
 import style from "styled-components";
+import { changeTheme } from "../../../../redux/action";
+import { useDispatch, useSelector } from "react-redux";
 
 const ThemeButton = () => {
+  const dispatch = useDispatch();
+  const theme = useSelector((state) => state.themeReducer.theme);
+  const clickHandler = () => {
+    console.log("clicked the button");
+    dispatch(changeTheme());
+  };
+
   return (
-    <Button aria-label="theme button">
-      <FaMoon />
+    <Button aria-label="theme button" onClick={clickHandler}>
+      {theme === "light" ? <FaMoon /> : <FaSun />}
     </Button>
   );
 };

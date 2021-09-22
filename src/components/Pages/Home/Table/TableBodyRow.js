@@ -8,7 +8,8 @@ import { favoriteCountry, removeCountry } from "../../../../redux/action";
 const TableBodyRow = ({ country }) => {
   const { flag, name, population, region, languages } = country;
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.countryReducer.cart);
+  const theme = useSelector((state) => state.themeReducer.theme);
 
   const addToFavorites = (country, e) => {
     if (!Boolean(cart.find((country) => country.name === name))) {
@@ -19,32 +20,34 @@ const TableBodyRow = ({ country }) => {
   };
 
   return (
-    <Row>
-      <Cell>
+    <Row className={theme === "dark" && "dark-mode"}>
+      <Cell className={theme === "dark" && "dark-mode"}>
         <Image src={`${flag}`} alt={`Flag of ${name}`} />
       </Cell>
-      <Cell>
+      <Cell className={theme === "dark" && "dark-mode"}>
         <Link to={`/country/${name}`} style={{ textDecoration: "underline" }}>
           {name}
         </Link>
       </Cell>
-      <Cell>{`${(population / 1000000).toFixed(2)} M`}</Cell>
-      <Cell>{region}</Cell>
-      <Cell>
+      <Cell className={theme === "dark" && "dark-mode"}>{`${(
+        population / 1000000
+      ).toFixed(2)} M`}</Cell>
+      <Cell className={theme === "dark" && "dark-mode"}>{region}</Cell>
+      <Cell className={theme === "dark" && "dark-mode"}>
         <List>
           {languages.map((language) => (
             <li key={language.name}>{language.nativeName}</li>
           ))}
         </List>
       </Cell>
-      <Cell>
+      <Cell className={theme === "dark" && "dark-mode"}>
         <Button onClick={(e) => addToFavorites(country, e)}>
           <FaStar
-            className={
+            className={`${
               Boolean(cart.find((country) => country.name === name))
                 ? "favorited"
                 : "unfavorited"
-            }
+            } ${theme === "dark" && "dark-mode"}`}
           />
         </Button>
       </Cell>
@@ -70,12 +73,24 @@ const Cell = styled.td`
       color: #4c9757;
     }
   }
+
+  &.dark-mode {
+    color: white;
+    border-color: white;
+    a {
+      color: white;
+    }
+  }
 `;
 
 const Row = styled.tr`
   background: #fef9f9;
   &:last-child td {
     border-bottom: none;
+  }
+
+  &.dark-mode {
+    background: #1a1a1a;
   }
 `;
 
@@ -99,6 +114,10 @@ const Button = styled.button`
     cursor: pointer;
     color: #4c9757;
     transform: scale(1.2);
+  }
+
+  &.dark-mode {
+    color: white;
   }
 `;
 

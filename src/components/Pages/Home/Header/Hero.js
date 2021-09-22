@@ -1,20 +1,25 @@
 import styled from "styled-components";
 import { FaMapSigns } from "react-icons/fa";
 import Globe from "../../../../images/homeMap.svg";
+import { useSelector } from "react-redux";
 
 const Hero = () => {
+  const theme = useSelector((state) => state.themeReducer.theme);
+
   return (
     <HeroContainer>
       <GlobeImage src={Globe}></GlobeImage>
       <Text>
-        <Heading>
+        <Heading className={theme === "dark" && "dark-mode"}>
           Country{" "}
           <span>
             <FaMapSigns style={{ color: "#4c9757" }} />
           </span>
           rivia
         </Heading>
-        <Description>The world, at your fingertips</Description>
+        <Description className={theme === "dark" && "dark-mode"}>
+          The world, at your fingertips
+        </Description>
       </Text>
     </HeroContainer>
   );
@@ -32,6 +37,10 @@ const Heading = styled.h1`
   font-size: 8rem;
   font-family: "Merienda", sans-serif;
   color: #222;
+
+  &.dark-mode {
+    color: white;
+  }
 `;
 
 const Description = styled.h2`
@@ -39,6 +48,10 @@ const Description = styled.h2`
   font-family: "Birthstone", sans-serif;
   letter-spacing: 0.7rem;
   color: #222;
+
+  &.dark-mode {
+    color: white;
+  }
 `;
 
 const Text = styled.div`

@@ -21,8 +21,6 @@ html {
 }
 
 body {
-  background-image: linear-gradient(to right, #d9f9daa1, white);
-  background-repeat: no-repeat;
 }
 
 a,
@@ -58,6 +56,10 @@ a:visited {
 
 .unfavorited {
   color: #222;
+}
+
+.dark-mode {
+  color: white;
 }
 
 @keyframes display {

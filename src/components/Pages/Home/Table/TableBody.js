@@ -5,7 +5,7 @@ import { getOneCountry } from "../../../../redux/action";
 
 const TableBody = ({ countries, searchText }) => {
   const dispatch = useDispatch();
-  const searchedCountry = useSelector((state) => state.country);
+  const searchedCountry = useSelector((state) => state.countryReducer.country);
   console.log("searchedCountry", searchedCountry[0]);
 
   useEffect(() => {
