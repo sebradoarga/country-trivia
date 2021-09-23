@@ -29,7 +29,6 @@ const HeaderTag = styled.header`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 45rem;
 `;
 
 const Navbar = styled.nav`
