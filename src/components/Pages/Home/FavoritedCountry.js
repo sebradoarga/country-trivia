@@ -18,8 +18,7 @@ const FavoritedCountry = ({ flag, name }) => {
       <Name>
         <Link
           to={`/country/${name}`}
-          style={{ color: "#4c9757" }}
-          style={theme === "dark" && { color: "white" }}
+          style={theme === "dark" ? { color: "white" } : { color: "#4c9757" }}
         >
           {name}
         </Link>
