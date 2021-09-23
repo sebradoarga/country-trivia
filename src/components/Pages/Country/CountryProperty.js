@@ -6,8 +6,7 @@ import { useSelector } from "react-redux";
 const CountryProperty = ({ text, country, property }) => {
   const [visible, setVisible] = useState(true);
   const countries = useSelector((state) => state.countryReducer.countries);
-
-  console.log("property", property);
+  const theme = useSelector((state) => state.themeReducer.theme);
 
   const clickHandler = () => {
     setVisible(!visible);
@@ -22,8 +21,15 @@ const CountryProperty = ({ text, country, property }) => {
 
   return (
     <Property>
-      <Name onClick={clickHandler}>{text}</Name>
-      <Content className={`${visible ? "showContent" : "hideContent"}`}>
+      <Name onClick={clickHandler} className={theme === "dark" && "dark-mode"}>
+        {text}
+      </Name>
+      <Content
+        className={`${visible ? "showContent" : "hideContent"} ${
+          theme === "dark" && "dark-mode"
+        }
+}`}
+      >
         {country.length < 1 ? (
           property
         ) : property.length === 0 || property === "Loading data..." ? (
@@ -72,6 +78,10 @@ const Name = styled.button`
   &:hover {
     transform: translateY(-0.2rem);
     cursor: pointer;
+  }
+
+  &.dark-mode {
+    color: white;
   }
 `;
 

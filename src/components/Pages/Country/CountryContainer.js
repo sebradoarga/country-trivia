@@ -4,13 +4,15 @@ import CountryProperty from "./CountryProperty";
 import ErrorMessage from "../../ErrorMessage";
 import styled from "styled-components";
 import Background from "../../../images/map.svg";
+import DarkModeBackground from "../../../images/map2.svg";
+import { useSelector } from "react-redux";
 
 const CountryContainer = ({ country, displayCountryError }) => {
-  console.log("country[0]", country[0]);
+  const theme = useSelector((state) => state.themeReducer.theme);
   return displayCountryError ? (
     <ErrorMessage />
   ) : (
-    <Container>
+    <Container className={theme === "dark" && "dark-mode"}>
       <CountryHeader country={country} />
       <Properties>
         <CountryProperty
@@ -64,6 +66,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  &.dark-mode {
+    background-image: linear-gradient(#06080594, #06080594),
+      url(${DarkModeBackground});
+  }
 `;
 
 const Properties = styled.div`

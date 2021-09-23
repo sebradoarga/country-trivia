@@ -25,8 +25,8 @@ const Button = style.button`
   border: none;
   font-size: 3rem;
   color: #4C9757;
-  transition: all 0.1s ease-in-out;
-
+  transition: all 0.3s ease;
+  
   &:hover {
       color: #4c9757cb;
       cursor: pointer;

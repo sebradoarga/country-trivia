@@ -79,6 +79,9 @@ const Cell = styled.td`
     border-color: white;
     a {
       color: white;
+      &:hover {
+        color: #4c9757;
+      }
     }
   }
 `;

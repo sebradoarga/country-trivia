@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { removeCountry } from "../../../redux/action";
 
 const FavoritedCountry = ({ flag, name }) => {
   const dispatch = useDispatch();
+  const theme = useSelector((state) => state.themeReducer.theme);
   const handleClick = (name) => {
     console.log("removing country");
     dispatch(removeCountry(name));
@@ -13,13 +14,20 @@ const FavoritedCountry = ({ flag, name }) => {
 
   return (
     <Container>
-      <Image src={flag} />
+      <Image src={flag} className={theme === "dark" && "dark-mode"} />
       <Name>
-        <Link to={`/country/${name}`} style={{ color: "#4c9757" }}>
+        <Link
+          to={`/country/${name}`}
+          style={{ color: "#4c9757" }}
+          style={theme === "dark" && { color: "white" }}
+        >
           {name}
         </Link>
       </Name>
-      <RemoveBtn onClick={() => handleClick(name)}>
+      <RemoveBtn
+        onClick={() => handleClick(name)}
+        className={theme === "dark" && "dark-mode"}
+      >
         <FaTrash />
       </RemoveBtn>
     </Container>
@@ -40,6 +48,10 @@ const Container = styled.div`
 const Image = styled.img`
   width: 25%;
   border: 1px solid #222;
+
+  &.dark-mode {
+    border-color: white;
+  }
 `;
 
 const Name = styled.h3`
@@ -50,6 +62,10 @@ const Name = styled.h3`
 
   &:hover {
     transform: scale(1.1);
+  }
+
+  &.dark-mode {
+    color: white;
   }
 `;
 
@@ -63,6 +79,15 @@ const RemoveBtn = styled.button`
   &:hover {
     color: #4c9757;
     cursor: pointer;
+  }
+
+  &.dark-mode {
+    color: white;
+
+    &:hover {
+      color: #4c9757;
+      cursor: pointer;
+    }
   }
 `;
 

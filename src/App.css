@@ -13,7 +13,7 @@ html,
 body,
 #root,
 .App {
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 html {
@@ -51,7 +51,7 @@ a:visited {
 }
 
 .favorited {
-  color: #4c9757;
+  color: #4c9757 !important;
 }
 
 .unfavorited {

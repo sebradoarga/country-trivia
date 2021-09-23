@@ -5,6 +5,7 @@ import { FaStar } from "react-icons/fa";
 
 const ExpandedCart = ({ expanded, setExpanded }) => {
   const cart = useSelector((state) => state.countryReducer.cart);
+  const theme = useSelector((state) => state.themeReducer.theme);
 
   console.log("cart", cart);
 
@@ -13,7 +14,11 @@ const ExpandedCart = ({ expanded, setExpanded }) => {
   };
 
   return (
-    <Container className={expanded ? "expanded" : "shrunk"}>
+    <Container
+      className={`${expanded ? "expanded" : "shrunk"} ${
+        theme === "dark" && "dark-mode"
+      }`}
+    >
       <CloseBtn onClick={shrinkCart}>x</CloseBtn>
       <Heading>
         Your Favorites{" "}
@@ -56,6 +61,10 @@ const Container = styled.aside`
   padding: 10rem 2rem 3rem 2rem;
   border-left: 7px solid #4c9757;
   background-image: linear-gradient(0, #d9f9daa1, white);
+
+  &.dark-mode {
+    background-image: linear-gradient(0, #070906, #1a1a1a);
+  }
 `;
 
 const CloseBtn = styled.button`
