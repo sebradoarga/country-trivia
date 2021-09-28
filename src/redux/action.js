@@ -15,7 +15,7 @@ export const removeCountry = (countryName) => {
 export const getCountries = () => {
   return async (dispatch) => {
     try {
-      const data = await fetch("https://restcountries-v2.herokuapp.com/all");
+      const data = await fetch("https://restcountries.com/v2/all");
       const countriesList = await data.json();
       console.log("countries", countriesList);
 
@@ -38,7 +38,7 @@ export const fetchCountriesSuccess = (data) => {
 export const getOneCountry = (countryName) => {
   return async (dispatch) => {
     const data = await fetch(
-      `https://restcountries-v2.herokuapp.com/country/${countryName}`
+      `https://restcountries.com/v2/name/${countryName}`
     );
 
     const country = await data.json();
@@ -64,5 +64,18 @@ export const fetchError = (error) => {
 export const changeTheme = () => {
   return {
     type: "CHANGE_THEME",
+  };
+};
+
+export const sortTable = (criterium) => {
+  return {
+    type: "SORT_TABLE",
+    payload: criterium,
+  };
+};
+
+export const getSortedCountries = () => {
+  return {
+    type: "GET_SORTED_COUNTRIES",
   };
 };

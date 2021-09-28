@@ -19,32 +19,30 @@ const CountryContainer = ({ country, displayCountryError }) => {
           text={"other spellings"}
           country={country}
           property={
-            country.length > 0 ? country[0].altSpellings : "Loading data..."
+            !country.message ? country[0].altSpellings : "Loading data..."
           }
         />
         <CountryProperty
           text={"region"}
           country={country}
-          property={country.length > 0 ? country[0].region : "Loading data..."}
+          property={!country.message ? country[0].region : "Loading data..."}
         />
         <CountryProperty
           text={"borders"}
           country={country}
-          property={country.length > 0 ? country[0].borders : "Loading data..."}
+          property={!country.message ? country[0].borders : "Loading data..."}
         />
         <CountryProperty
           text={"currencies"}
           country={country}
           property={
-            country.length > 0 ? country[0].currencies : "Loading data..."
+            !country.message ? country[0].currencies : "Loading data..."
           }
         />
         <CountryProperty
           text={"languages"}
           country={country}
-          property={
-            country.length > 0 ? country[0].languages : "Loading data..."
-          }
+          property={!country.message ? country[0].languages : "Loading data..."}
         />
       </Properties>
     </Container>

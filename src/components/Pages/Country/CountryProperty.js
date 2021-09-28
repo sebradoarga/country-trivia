@@ -8,6 +8,8 @@ const CountryProperty = ({ text, country, property }) => {
   const countries = useSelector((state) => state.countryReducer.countries);
   const theme = useSelector((state) => state.themeReducer.theme);
 
+  console.log("property", property);
+
   const clickHandler = () => {
     setVisible(!visible);
   };
@@ -30,7 +32,7 @@ const CountryProperty = ({ text, country, property }) => {
         }
 }`}
       >
-        {country.length < 1 ? (
+        {country.message || !property ? (
           property
         ) : property.length === 0 || property === "Loading data..." ? (
           <li>none</li>

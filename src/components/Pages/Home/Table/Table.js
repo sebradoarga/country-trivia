@@ -11,11 +11,9 @@ const Table = ({ searchText }) => {
   const dispatch = useDispatch();
 
   const countries = useSelector((state) => state.countryReducer.countries);
-  console.log("all countries", countries);
   const error = useSelector((state) => state.countryReducer.error);
 
   useEffect(() => {
-    console.log("gonna dispatch");
     dispatch(getCountries());
   }, []);
 
@@ -26,7 +24,7 @@ const Table = ({ searchText }) => {
   ) : (
     <TableTag cellSpacing="0" cellPadding="0">
       <TableHead />
-      <TableBody countries={countries} searchText={searchText} />
+      <TableBody searchText={searchText} />
     </TableTag>
   );
 };

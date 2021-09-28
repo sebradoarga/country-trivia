@@ -8,8 +8,9 @@ import { getOneCountry } from "../../../redux/action";
 
 const Country = ({ displayCountryError }) => {
   const { name } = useParams();
-  console.log("name", name);
   const country = useSelector((state) => state.countryReducer.country);
+  const theme = useSelector((state) => state.themeReducer.theme);
+  console.log("country initial", country);
 
   const dispatch = useDispatch();
 
@@ -17,8 +18,8 @@ const Country = ({ displayCountryError }) => {
     dispatch(getOneCountry(name));
   }, []);
 
-  return country.length < 1 ? (
-    <Loading>Loading...</Loading>
+  return country.message ? (
+    <Loading className={theme === "dark" && "dark-mode"}>Loading...</Loading>
   ) : (
     <>
       <Link to="/">
@@ -40,6 +41,10 @@ const Loading = styled.h2`
   left: 50%;
   transform: translate(-50%, -50%);
   letter-spacing: 0.8rem;
+
+  &.dark-mode {
+    color: white;
+  }
 `;
 
 export default Country;

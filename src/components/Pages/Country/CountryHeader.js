@@ -7,6 +7,7 @@ const CountryHeader = ({ country }) => {
   return (
     <div>
       <Image
+        className={theme === "dark" && "dark-mode"}
         src={country.length > 0 ? `${country[0].flag}` : ``}
         alt={country.length > 0 ? `Flag of ${country[0].name}` : "Flag"}
       />
@@ -26,6 +27,9 @@ const Image = styled.img`
   margin-top: 3rem;
   box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.3);
   object-fit: cover;
+  &.dark-mode {
+    border: 3px solid white;
+  }
 `;
 
 const Name = styled.h2`

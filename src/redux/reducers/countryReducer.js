@@ -3,6 +3,8 @@ const defaultState = {
   countries: [],
   country: {},
   error: null,
+  criteria: ["Name A-Z", "Name Z-A", "Population Asc", "Population Desc"],
+  sort: "Name A-Z",
 };
 
 const countryReducer = (state = defaultState, action) => {
@@ -55,6 +57,44 @@ const countryReducer = (state = defaultState, action) => {
         ...state,
         error: errorFromPayload,
       };
+
+    case "SORT_TABLE":
+      const newSort = action.payload;
+      let sortedCountries;
+      if (newSort === "Name A-Z") {
+        sortedCountries = state.countries.sort((a, b) => {
+          if (a.name < b.name) {
+            return -1;
+          }
+          if (a.name > b.name) {
+            return 1;
+          }
+          return 0;
+        });
+      } else if (newSort === "Name Z-A") {
+        sortedCountries = state.countries.sort((a, b) => {
+          if (a.name < b.name) {
+            return 1;
+          }
+          if (a.name > b.name) {
+            return -1;
+          }
+          return 0;
+        });
+      } else if (newSort === "Population Asc") {
+        sortedCountries = state.countries.sort(
+          (a, b) => a.population - b.population
+        );
+      } else if (newSort === "Population Desc") {
+        sortedCountries = state.countries.sort(
+          (a, b) => b.population - a.population
+        );
+      }
+
+      return { ...state, sort: newSort, countries: sortedCountries };
+
+    case "GET_SORTED_COUNTRIES":
+      return;
 
     default:
       return state;

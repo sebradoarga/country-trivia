@@ -1,12 +1,14 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import TableBodyRow from "./TableBodyRow";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneCountry } from "../../../../redux/action";
 
-const TableBody = ({ countries, searchText }) => {
+const TableBody = ({ searchText }) => {
   const dispatch = useDispatch();
   const searchedCountry = useSelector((state) => state.countryReducer.country);
-  console.log("searchedCountry", searchedCountry[0]);
+  const sortedCountries = useSelector(
+    (state) => state.countryReducer.countries
+  );
 
   useEffect(() => {
     dispatch(getOneCountry(searchText));
@@ -15,8 +17,8 @@ const TableBody = ({ countries, searchText }) => {
   return (
     <tbody>
       {searchText === ""
-        ? countries.length > 0 &&
-          countries.map((country) => (
+        ? sortedCountries.length > 0 &&
+          sortedCountries.map((country) => (
             <TableBodyRow key={country.name} country={country} />
           ))
         : searchedCountry[0] &&
