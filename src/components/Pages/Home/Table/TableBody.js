@@ -6,6 +6,7 @@ import { getOneCountry } from "../../../../redux/action";
 const TableBody = ({ searchText }) => {
   const dispatch = useDispatch();
   const searchedCountry = useSelector((state) => state.countryReducer.country);
+  const sort = useSelector((state) => state.countryReducer.sort);
   const sortedCountries = useSelector(
     (state) => state.countryReducer.countries
   );
