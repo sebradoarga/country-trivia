@@ -12,7 +12,6 @@ const storeFactory = () => {
     const persistedState = persistedStateString
       ? JSON.parse(persistedStateString)
       : [];
-    console.log("first state", persistedState);
 
     return persistedState;
   };

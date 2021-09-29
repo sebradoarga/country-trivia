@@ -7,8 +7,6 @@ const ExpandedCart = ({ expanded, setExpanded }) => {
   const cart = useSelector((state) => state.countryReducer.cart);
   const theme = useSelector((state) => state.themeReducer.theme);
 
-  console.log("cart", cart);
-
   const shrinkCart = () => {
     setExpanded(false);
   };
@@ -63,7 +61,7 @@ const Container = styled.aside`
   background-image: linear-gradient(0, #d9f9daa1, white);
 
   &.dark-mode {
-    background-image: linear-gradient(0, #070906, #1a1a1a);
+    background: #070906;
   }
 `;
 

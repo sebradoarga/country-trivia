@@ -30,8 +30,6 @@ const countryReducer = (state = defaultState, action) => {
       const newState = state.cart.filter(
         (country) => country.name !== removedCountry
       );
-      console.log("newState", newState);
-      console.log("state", state);
       return {
         ...state,
         cart: newState,

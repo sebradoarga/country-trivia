@@ -17,11 +17,8 @@ export const getCountries = () => {
     try {
       const data = await fetch("https://restcountries.com/v2/all");
       const countriesList = await data.json();
-      console.log("countries", countriesList);
-
       dispatch(fetchCountriesSuccess(countriesList));
     } catch (error) {
-      console.log("error", error);
       dispatch(fetchError(error));
     }
   };
@@ -42,7 +39,6 @@ export const getOneCountry = (countryName) => {
     );
 
     const country = await data.json();
-    console.log("country in action", country);
     dispatch(fetchOneCountrySuccess(country));
   };
 };

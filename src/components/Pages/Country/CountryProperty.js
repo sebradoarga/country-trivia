@@ -8,8 +8,6 @@ const CountryProperty = ({ text, country, property }) => {
   const countries = useSelector((state) => state.countryReducer.countries);
   const theme = useSelector((state) => state.themeReducer.theme);
 
-  console.log("property", property);
-
   const clickHandler = () => {
     setVisible(!visible);
   };

@@ -8,7 +8,6 @@ const ThemeButton = () => {
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.themeReducer.theme);
   const clickHandler = () => {
-    console.log("clicked the button");
     dispatch(changeTheme());
   };
 

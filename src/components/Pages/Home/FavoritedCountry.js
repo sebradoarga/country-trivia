@@ -8,7 +8,6 @@ const FavoritedCountry = ({ flag, name }) => {
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.themeReducer.theme);
   const handleClick = (name) => {
-    console.log("removing country");
     dispatch(removeCountry(name));
   };
 

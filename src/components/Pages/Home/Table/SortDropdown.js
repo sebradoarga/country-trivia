@@ -6,7 +6,6 @@ const SortDropdown = () => {
   const dispatch = useDispatch();
   const criteria = useSelector((state) => state.countryReducer.criteria);
   const handleSelect = (e) => {
-    console.log("target.value", e.target.value);
     dispatch(sortTable(e.target.value));
   };
 

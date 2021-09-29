@@ -28,8 +28,9 @@ export default App;
 const AppContainer = styled.div`
   background-image: linear-gradient(to right, #d9f9daa1, white);
   background-repeat: no-repeat;
+  padding-bottom: 2rem;
 
   &.dark-mode {
-    background-image: linear-gradient(to right, #060805, #1a1a1a);
+    background: #060805;
   }
 `;

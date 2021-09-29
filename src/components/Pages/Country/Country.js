@@ -10,7 +10,6 @@ const Country = ({ displayCountryError }) => {
   const { name } = useParams();
   const country = useSelector((state) => state.countryReducer.country);
   const theme = useSelector((state) => state.themeReducer.theme);
-  console.log("country initial", country);
 
   const dispatch = useDispatch();
 
