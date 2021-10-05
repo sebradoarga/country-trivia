@@ -3,10 +3,11 @@ import { FaMoon, FaSun } from "react-icons/fa";
 import style from "styled-components";
 import { changeTheme } from "../../../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../../redux/reducers";
 
 const ThemeButton = () => {
   const dispatch = useDispatch();
-  const theme = useSelector((state) => state.themeReducer.theme);
+  const theme = useSelector((state: RootState) => state.themeReducer.theme);
   const clickHandler = () => {
     dispatch(changeTheme());
   };

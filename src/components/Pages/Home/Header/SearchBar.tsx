@@ -1,7 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-const SearchBar = ({ searchText, setSearchText }) => {
+const SearchBar = ({
+  searchText,
+  setSearchText,
+}: {
+  searchText: string;
+  setSearchText: any;
+}) => {
   return (
     <Search
       type="text"

@@ -4,50 +4,54 @@ import styled from "styled-components";
 import { FaStar } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { favoriteCountry, removeCountry } from "../../../../redux/action";
+import { RootState } from "../../../../redux/reducers";
+import { Country } from "../../../../redux/types";
 
-const TableBodyRow = ({ country }) => {
+const TableBodyRow = ({ country }: { country: Country }) => {
   const { flag, name, population, region, languages } = country;
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.countryReducer.cart);
-  const theme = useSelector((state) => state.themeReducer.theme);
+  const cart = useSelector((state: RootState) => state.countryReducer.cart);
+  const theme = useSelector((state: RootState) => state.themeReducer.theme);
 
-  const addToFavorites = (country, e) => {
-    if (!Boolean(cart.find((country) => country.name === name))) {
+  const addToFavorites = (country: Country) => {
+    if (!Boolean(cart.find((country: Country) => country.name === name))) {
       dispatch(favoriteCountry(country));
     } else {
       dispatch(removeCountry(name));
     }
   };
 
+  const changeTheme = theme === "dark" ? "dark-mode" : "";
+
   return (
-    <Row className={theme === "dark" && "dark-mode"}>
-      <Cell className={theme === "dark" && "dark-mode"}>
+    <Row className={changeTheme}>
+      <Cell className={changeTheme}>
         <Image src={`${flag}`} alt={`Flag of ${name}`} />
       </Cell>
-      <Cell className={theme === "dark" && "dark-mode"}>
+      <Cell className={changeTheme}>
         <Link to={`/country/${name}`} style={{ textDecoration: "underline" }}>
           {name}
         </Link>
       </Cell>
-      <Cell className={theme === "dark" && "dark-mode"}>{`${(
-        population / 1000000
-      ).toFixed(2)} M`}</Cell>
-      <Cell className={theme === "dark" && "dark-mode"}>{region}</Cell>
-      <Cell className={theme === "dark" && "dark-mode"}>
+      <Cell className={changeTheme}>{`${(population / 1000000).toFixed(
+        2
+      )} M`}</Cell>
+      <Cell className={changeTheme}>{region}</Cell>
+      <Cell className={changeTheme}>
         <List>
           {languages.map((language) => (
             <li key={language.name}>{language.nativeName}</li>
           ))}
         </List>
       </Cell>
-      <Cell className={theme === "dark" && "dark-mode"}>
-        <Button onClick={(e) => addToFavorites(country, e)}>
+      <Cell className={changeTheme}>
+        <Button onClick={() => addToFavorites(country)}>
           <FaStar
             className={`${
-              Boolean(cart.find((country) => country.name === name))
+              Boolean(cart.find((country: Country) => country.name === name))
                 ? "favorited"
                 : "unfavorited"
-            } ${theme === "dark" && "dark-mode"}`}
+            } ${changeTheme}`}
           />
         </Button>
       </Cell>

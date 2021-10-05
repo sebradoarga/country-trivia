@@ -2,13 +2,17 @@ import { useState, useEffect } from "react";
 import TableBodyRow from "./TableBodyRow";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneCountry } from "../../../../redux/action";
+import { Country } from "../../../../redux/types";
+import { RootState } from "../../../../redux/reducers";
 
-const TableBody = ({ searchText }) => {
+const TableBody = ({ searchText }: { searchText: string }) => {
   const dispatch = useDispatch();
-  const searchedCountry = useSelector((state) => state.countryReducer.country);
-  const sort = useSelector((state) => state.countryReducer.sort);
+  const searchedCountry = useSelector(
+    (state: RootState) => state.countryReducer.country
+  );
+  const sort = useSelector((state: RootState) => state.countryReducer.sort);
   const sortedCountries = useSelector(
-    (state) => state.countryReducer.countries
+    (state: RootState) => state.countryReducer.countries
   );
 
   useEffect(() => {
@@ -19,11 +23,11 @@ const TableBody = ({ searchText }) => {
     <tbody>
       {searchText === ""
         ? sortedCountries.length > 0 &&
-          sortedCountries.map((country) => (
+          sortedCountries.map((country: Country) => (
             <TableBodyRow key={country.name} country={country} />
           ))
         : searchedCountry[0] &&
-          searchedCountry.map((country) => (
+          searchedCountry.map((country: Country) => (
             <TableBodyRow key={country.name} country={country} />
           ))}
     </tbody>

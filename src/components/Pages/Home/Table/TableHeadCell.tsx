@@ -1,8 +1,7 @@
-import React from "react";
 import styled from "styled-components";
 import SortDropdown from "./SortDropdown";
 
-const TableHeadCell = ({ text }) => {
+const TableHeadCell = ({ text }: { text: string }) => {
   return <Cell>{text === "" ? <SortDropdown /> : text}</Cell>;
 };
 

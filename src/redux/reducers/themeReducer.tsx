@@ -1,8 +1,12 @@
-const defaultState = {
+type ThemeDefaultState = {
+  theme: "light" | "dark";
+};
+
+const defaultState: ThemeDefaultState = {
   theme: "light",
 };
 
-const themeReducer = (state = defaultState, action) => {
+const themeReducer = (state = defaultState, action): any => {
   switch (action.type) {
     case "CHANGE_THEME":
       let newTheme = "";

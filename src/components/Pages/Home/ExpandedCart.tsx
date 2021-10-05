@@ -2,10 +2,18 @@ import styled from "styled-components";
 import FavoritedCountry from "./FavoritedCountry";
 import { useSelector } from "react-redux";
 import { FaStar } from "react-icons/fa";
+import { RootState } from "../../../redux/reducers";
+import { Country } from "../../../redux/types";
 
-const ExpandedCart = ({ expanded, setExpanded }) => {
-  const cart = useSelector((state) => state.countryReducer.cart);
-  const theme = useSelector((state) => state.themeReducer.theme);
+const ExpandedCart = ({
+  expanded,
+  setExpanded,
+}: {
+  expanded: Boolean;
+  setExpanded: any;
+}) => {
+  const cart = useSelector((state: RootState) => state.countryReducer.cart);
+  const theme = useSelector((state: RootState) => state.themeReducer.theme);
 
   const shrinkCart = () => {
     setExpanded(false);
@@ -33,7 +41,7 @@ const ExpandedCart = ({ expanded, setExpanded }) => {
       </Heading>
       {cart.length > 0 ? (
         <Countries>
-          {cart.map((country) => (
+          {cart.map((country: Country) => (
             <FavoritedCountry
               key={country.name}
               flag={country.flag}

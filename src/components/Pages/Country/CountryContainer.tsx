@@ -1,4 +1,3 @@
-import React from "react";
 import CountryHeader from "./CountryHeader";
 import CountryProperty from "./CountryProperty";
 import ErrorMessage from "../../ErrorMessage";
@@ -6,43 +5,42 @@ import styled from "styled-components";
 import Background from "../../../images/map.svg";
 import DarkModeBackground from "../../../images/map2.svg";
 import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/reducers";
+import { Country } from "../../../redux/types";
 
-const CountryContainer = ({ country, displayCountryError }) => {
-  const theme = useSelector((state) => state.themeReducer.theme);
-  return displayCountryError ? (
+const CountryContainer = ({ country }: { country: Country }) => {
+  const theme = useSelector((state: RootState) => state.themeReducer.theme);
+  const changeTheme = theme === "dark" ? "dark-mode" : "";
+  return !country ? (
     <ErrorMessage />
   ) : (
-    <Container className={theme === "dark" && "dark-mode"}>
+    <Container className={changeTheme}>
       <CountryHeader country={country} />
       <Properties>
         <CountryProperty
           text={"other spellings"}
           country={country}
-          property={
-            !country.message ? country[0].altSpellings : "Loading data..."
-          }
+          property={!country.message ? country.altSpellings : "Loading data..."}
         />
         <CountryProperty
           text={"region"}
           country={country}
-          property={!country.message ? country[0].region : "Loading data..."}
+          property={!country.message ? country.region : "Loading data..."}
         />
         <CountryProperty
           text={"borders"}
           country={country}
-          property={!country.message ? country[0].borders : "Loading data..."}
+          property={!country.message ? country.borders : "Loading data..."}
         />
         <CountryProperty
           text={"currencies"}
           country={country}
-          property={
-            !country.message ? country[0].currencies : "Loading data..."
-          }
+          property={!country.message ? country.currencies : "Loading data..."}
         />
         <CountryProperty
           text={"languages"}
           country={country}
-          property={!country.message ? country[0].languages : "Loading data..."}
+          property={!country.message ? country.languages : "Loading data..."}
         />
       </Properties>
     </Container>

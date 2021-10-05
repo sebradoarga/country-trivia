@@ -6,12 +6,15 @@ import styled from "styled-components";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getCountries } from "../../../../redux/action";
+import { RootState } from "../../../../redux/reducers";
 
-const Table = ({ searchText }) => {
+const Table = ({ searchText }: { searchText: string }) => {
   const dispatch = useDispatch();
 
-  const countries = useSelector((state) => state.countryReducer.countries);
-  const error = useSelector((state) => state.countryReducer.error);
+  const countries = useSelector(
+    (state: RootState) => state.countryReducer.countries
+  );
+  const error = useSelector((state: RootState) => state.countryReducer.error);
 
   useEffect(() => {
     dispatch(getCountries());

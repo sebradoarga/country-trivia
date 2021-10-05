@@ -2,24 +2,24 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
+import { RootState } from "../../../../redux/reducers";
 
-const Cart = ({ setExpanded }) => {
-  const cart = useSelector((state) => state.countryReducer.cart);
-  const theme = useSelector((state) => state.themeReducer.theme);
+const Cart = ({ setExpanded }: { setExpanded: any }) => {
+  const cart = useSelector((state: RootState) => state.countryReducer.cart);
+  const theme = useSelector((state: RootState) => state.themeReducer.theme);
 
   const clickHandler = () => {
     setExpanded(true);
   };
+
+  const changeTheme = theme === "dark" ? "dark-mode" : "";
 
   return (
     <Container>
       <CartBtn aria-label="cart button" onClick={clickHandler}>
         <FaStar />
       </CartBtn>
-      <Value
-        aria-label="number of items in cart"
-        className={theme === "dark" && "dark-mode"}
-      >
+      <Value aria-label="number of items in cart" className={changeTheme}>
         {cart.length}
       </Value>
     </Container>

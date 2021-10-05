@@ -6,7 +6,15 @@ import styled from "styled-components";
 import Hero from "./Hero";
 import { FaSearch } from "react-icons/fa";
 
-const Header = ({ searchText, setSearchText, setExpanded }) => {
+const Header = ({
+  searchText,
+  setSearchText,
+  setExpanded,
+}: {
+  searchText: string;
+  setSearchText: any;
+  setExpanded: any;
+}) => {
   return (
     <HeaderTag className="home-header">
       <Navbar>

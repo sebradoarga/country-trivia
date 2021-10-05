@@ -1,19 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { DefaultRootState, useSelector } from "react-redux";
+import { Country } from "../../../redux/types";
+import { RootState } from "../../../redux/reducers";
 
-const CountryHeader = ({ country }) => {
-  const theme = useSelector((state) => state.themeReducer.theme);
+const CountryHeader = ({ country }: { country: Country }) => {
+  const theme = useSelector((state: RootState) => state.themeReducer.theme);
+  const changeTheme = theme === "dark" ? "dark-mode" : "";
   return (
     <div>
       <Image
-        className={theme === "dark" && "dark-mode"}
-        src={country.length > 0 ? `${country[0].flag}` : ``}
-        alt={country.length > 0 ? `Flag of ${country[0].name}` : "Flag"}
+        className={changeTheme}
+        src={country ? `${country.flag}` : ``}
+        alt={country ? `Flag of ${country.name}` : "Flag"}
       />
-      <Name className={theme === "dark" && "dark-mode"}>
-        {country.length > 0 ? country[0].name : " "}
-      </Name>
+      <Name className={changeTheme}>{country ? country.name : " "}</Name>
     </div>
   );
 };

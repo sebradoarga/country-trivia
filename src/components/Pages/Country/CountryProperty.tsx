@@ -2,26 +2,40 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
+import { Country, Currency } from "../../../redux/types";
+import { RootState } from "../../../redux/reducers";
 
-const CountryProperty = ({ text, country, property }) => {
+const CountryProperty = ({
+  text,
+  country,
+  property,
+}: {
+  text: string;
+  country: Country;
+  property: string | string[] | Currency[];
+}) => {
   const [visible, setVisible] = useState(true);
-  const countries = useSelector((state) => state.countryReducer.countries);
-  const theme = useSelector((state) => state.themeReducer.theme);
+  const countries = useSelector(
+    (state: RootState) => state.countryReducer.countries
+  );
+  const theme = useSelector((state: RootState) => state.themeReducer.theme);
 
   const clickHandler = () => {
     setVisible(!visible);
   };
 
-  const getCountryFromCode = (code) => {
+  const getCountryFromCode = (code: string) => {
     const rightCountry = countries.filter(
-      (country) => country.alpha3Code === code
+      (country: Country) => country.alpha3Code === code
     );
     return rightCountry[0] === undefined ? code : rightCountry[0].name;
   };
 
+  const changeTheme = theme === "dark" ? "dark-mode" : "";
+
   return (
     <Property>
-      <Name onClick={clickHandler} className={theme === "dark" && "dark-mode"}>
+      <Name onClick={clickHandler} className={changeTheme}>
         {text}
       </Name>
       <Content
@@ -34,12 +48,12 @@ const CountryProperty = ({ text, country, property }) => {
           property
         ) : property.length === 0 || property === "Loading data..." ? (
           <li>none</li>
-        ) : property === country[0].borders ? (
+        ) : property === country.borders ? (
           property.map((element) => (
             <Item key={uuidv4()}>{getCountryFromCode(element)}</Item>
           ))
-        ) : property === country[0].currencies ||
-          property === country[0].languages ? (
+        ) : property === country.currencies ||
+          property === country.languages ? (
           property.map((element) => <Item key={uuidv4()}>{element.name}</Item>)
         ) : Array.isArray(property) ? (
           property.map((element) => <Item key={uuidv4()}>{element}</Item>)

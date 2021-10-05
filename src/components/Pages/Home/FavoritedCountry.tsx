@@ -3,17 +3,20 @@ import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { removeCountry } from "../../../redux/action";
+import { RootState } from "../../../redux/reducers";
 
-const FavoritedCountry = ({ flag, name }) => {
+const FavoritedCountry = ({ flag, name }: { flag: string; name: string }) => {
   const dispatch = useDispatch();
-  const theme = useSelector((state) => state.themeReducer.theme);
-  const handleClick = (name) => {
+  const theme = useSelector((state: RootState) => state.themeReducer.theme);
+  const handleClick = (name: string) => {
     dispatch(removeCountry(name));
   };
 
+  const changeTheme = theme === "dark" ? "dark-mode" : "";
+
   return (
     <Container>
-      <Image src={flag} className={theme === "dark" && "dark-mode"} />
+      <Image src={flag} className={changeTheme} />
       <Name>
         <Link
           to={`/country/${name}`}
@@ -22,10 +25,7 @@ const FavoritedCountry = ({ flag, name }) => {
           {name}
         </Link>
       </Name>
-      <RemoveBtn
-        onClick={() => handleClick(name)}
-        className={theme === "dark" && "dark-mode"}
-      >
+      <RemoveBtn onClick={() => handleClick(name)} className={changeTheme}>
         <FaTrash />
       </RemoveBtn>
     </Container>

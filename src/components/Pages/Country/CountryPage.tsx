@@ -5,11 +5,15 @@ import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneCountry } from "../../../redux/action";
+import { RootState } from "../../../redux/reducers";
+import { Country } from "../../../redux/types";
 
-const Country = ({ displayCountryError }) => {
-  const { name } = useParams();
-  const country = useSelector((state) => state.countryReducer.country);
-  const theme = useSelector((state) => state.themeReducer.theme);
+const CountryPage = () => {
+  const { name } = useParams<{ name?: string | undefined }>();
+  const country: Country = useSelector(
+    (state: RootState) => state.countryReducer.country
+  );
+  const theme = useSelector((state: RootState) => state.themeReducer.theme);
 
   const dispatch = useDispatch();
 
@@ -17,17 +21,16 @@ const Country = ({ displayCountryError }) => {
     dispatch(getOneCountry(name));
   }, []);
 
+  const changeTheme = theme === "dark" ? "dark-mode" : "";
+
   return country.message ? (
-    <Loading className={theme === "dark" && "dark-mode"}>Loading...</Loading>
+    <Loading className={changeTheme}>Loading...</Loading>
   ) : (
     <>
       <Link to="/">
         <ReturnButton />
       </Link>
-      <CountryContainer
-        country={country}
-        displayCountryError={displayCountryError}
-      />
+      <CountryContainer country={country} />
     </>
   );
 };
@@ -46,4 +49,4 @@ const Loading = styled.h2`
   }
 `;
 
-export default Country;
+export default CountryPage;

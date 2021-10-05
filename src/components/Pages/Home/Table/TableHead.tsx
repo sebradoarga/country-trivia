@@ -1,4 +1,3 @@
-import React from "react";
 import TableHeadCell from "./TableHeadCell";
 import styled from "styled-components";
 

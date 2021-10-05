@@ -2,22 +2,24 @@ import styled from "styled-components";
 import { FaMapSigns } from "react-icons/fa";
 import Globe from "../../../../images/homeMap.svg";
 import { useSelector } from "react-redux";
+import { RootState } from "../../../../redux/reducers";
 
 const Hero = () => {
-  const theme = useSelector((state) => state.themeReducer.theme);
+  const theme = useSelector((state: RootState) => state.themeReducer.theme);
+  const changeTheme = theme === "dark" ? "dark-mode" : "";
 
   return (
     <HeroContainer>
       <GlobeImage src={Globe}></GlobeImage>
       <Text>
-        <Heading className={theme === "dark" && "dark-mode"}>
+        <Heading className={changeTheme}>
           Country{" "}
           <span>
             <FaMapSigns style={{ color: "#4c9757" }} />
           </span>
           rivia
         </Heading>
-        <Description className={theme === "dark" && "dark-mode"}>
+        <Description className={changeTheme}>
           The world, at your fingertips
         </Description>
       </Text>

@@ -1,4 +1,25 @@
-const defaultState = {
+import {
+  AllActions,
+  INSERT_COUNTRY,
+  REMOVE_COUNTRY,
+  FETCH_COUNTRIES_SUCCESS,
+  FETCH_ONE_COUNTRY_SUCCESS,
+  FETCH_ERROR,
+  SORT_TABLE,
+  GET_SORTED_COUNTRIES,
+} from "../action";
+import { Country } from "../types";
+
+type DefaultState = {
+  cart: Country[];
+  countries: Country[];
+  country: Country | {};
+  error: any;
+  criteria: string[];
+  sort: "Name A-Z" | "Name Z-A" | "Population Asc" | "Population Desc";
+};
+
+const defaultState: DefaultState = {
   cart: [],
   countries: [],
   country: {},
@@ -7,9 +28,9 @@ const defaultState = {
   sort: "Name A-Z",
 };
 
-const countryReducer = (state = defaultState, action) => {
+const countryReducer = (state = defaultState, action: AllActions): any => {
   switch (action.type) {
-    case "INSERT_COUNTRY":
+    case INSERT_COUNTRY:
       const incomingCountry = action.payload;
       const incomingName = incomingCountry.name;
       const existCountry = state.cart.find(
@@ -25,7 +46,7 @@ const countryReducer = (state = defaultState, action) => {
         };
       }
 
-    case "REMOVE_COUNTRY":
+    case REMOVE_COUNTRY:
       const removedCountry = action.payload;
       const newState = state.cart.filter(
         (country) => country.name !== removedCountry
@@ -35,28 +56,28 @@ const countryReducer = (state = defaultState, action) => {
         cart: newState,
       };
 
-    case "FETCH_COUNTRIES_SUCCESS":
+    case FETCH_COUNTRIES_SUCCESS:
       const countriesPayload = action.payload;
       return {
         ...state,
         countries: countriesPayload,
       };
 
-    case "FETCH_ONE_COUNTRY_SUCCESS":
+    case FETCH_ONE_COUNTRY_SUCCESS:
       const countryData = action.payload;
       return {
         ...state,
         country: countryData,
       };
 
-    case "FETCH_ERROR":
+    case FETCH_ERROR:
       const errorFromPayload = action.payload;
       return {
         ...state,
         error: errorFromPayload,
       };
 
-    case "SORT_TABLE":
+    case SORT_TABLE:
       const newSort = action.payload;
       let sortedCountries;
       if (newSort === "Name A-Z") {
@@ -91,7 +112,7 @@ const countryReducer = (state = defaultState, action) => {
 
       return { ...state, sort: newSort, countries: sortedCountries };
 
-    case "GET_SORTED_COUNTRIES":
+    case GET_SORTED_COUNTRIES:
       return;
 
     default:
