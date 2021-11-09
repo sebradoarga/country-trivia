@@ -33,6 +33,7 @@ const Hero = () => {
 const HeroContainer = styled.div`
   background: transparent;
   width: 100%;
+  max-width: 120rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,18 +107,21 @@ const Text = styled.div`
 `;
 
 const GlobeImage = styled.img`
-  width: 100%;
+  height: 25rem;
   position: absolute;
   top: 5rem;
   opacity: 0.6;
 
   @media ${device.tablet} {
-    width: 60%;
-    left: 4rem;
+    left: 8rem;
   }
 
   @media ${device.laptop} {
-    left: 7rem;
+    left: 15rem;
+  }
+
+  @media ${device.laptopL} {
+    left: 25rem;
   }
 `;
 
