@@ -1,16 +1,16 @@
 import TableHeadCell from "./TableHeadCell";
 import styled from "styled-components";
 
-const TableHead = () => {
+const TableHead = ({ windowWidth }: { windowWidth: number }) => {
   return (
     <thead>
       <Row>
-        <TableHeadCell text={"Flag"} />
-        <TableHeadCell text={"Name"} />
-        <TableHeadCell text={"Population"} />
-        <TableHeadCell text={"Region"} />
-        <TableHeadCell text={"Languages"} />
-        <TableHeadCell text={""} />
+        <TableHeadCell text={"Flag"} windowWidth={windowWidth} />
+        <TableHeadCell text={"Name"} windowWidth={windowWidth} />
+        <TableHeadCell text={"Population"} windowWidth={windowWidth} />
+        <TableHeadCell text={"Region"} windowWidth={windowWidth} />
+        <TableHeadCell text={"Languages"} windowWidth={windowWidth} />
+        <TableHeadCell text={""} windowWidth={windowWidth} />
       </Row>
     </thead>
   );

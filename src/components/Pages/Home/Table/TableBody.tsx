@@ -5,7 +5,13 @@ import { getOneCountry } from "../../../../redux/action";
 import { Country } from "../../../../redux/types";
 import { RootState } from "../../../../redux/reducers";
 
-const TableBody = ({ searchText }: { searchText: string }) => {
+const TableBody = ({
+  searchText,
+  windowWidth,
+}: {
+  searchText: string;
+  windowWidth: number;
+}) => {
   const dispatch = useDispatch();
   const searchedCountry = useSelector(
     (state: RootState) => state.countryReducer.country
@@ -26,11 +32,19 @@ const TableBody = ({ searchText }: { searchText: string }) => {
       {searchText === ""
         ? sortedCountries.length > 0 &&
           sortedCountries.map((country: Country) => (
-            <TableBodyRow key={country.name} country={country} />
+            <TableBodyRow
+              key={country.name}
+              country={country}
+              windowWidth={windowWidth}
+            />
           ))
         : searchedCountry[0] &&
           searchedCountry.map((country: Country) => (
-            <TableBodyRow key={country.name} country={country} />
+            <TableBodyRow
+              key={country.name}
+              country={country}
+              windowWidth={windowWidth}
+            />
           ))}
     </tbody>
   );

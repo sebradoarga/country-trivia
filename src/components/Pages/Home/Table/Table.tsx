@@ -1,3 +1,4 @@
+import { useState } from "react";
 import TableHead from "./TableHead";
 import TableBody from "./TableBody";
 import ErrorMessage from "../../../ErrorMessage";
@@ -22,14 +23,22 @@ const Table = ({ searchText }: { searchText: string }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+
+  const updateWidth = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  window.addEventListener("resize", updateWidth);
+
   return countries.length < 1 ? (
     <LoadingMessage />
   ) : error ? (
     <ErrorMessage />
   ) : (
     <TableTag cellSpacing="0" cellPadding="0">
-      <TableHead />
-      <TableBody searchText={searchText} />
+      <TableHead windowWidth={windowWidth} />
+      <TableBody searchText={searchText} windowWidth={windowWidth} />
     </TableTag>
   );
 };

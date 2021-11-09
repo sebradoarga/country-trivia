@@ -5,8 +5,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { favoriteCountry, removeCountry } from "../../../../redux/action";
 import { RootState } from "../../../../redux/reducers";
 import { Country } from "../../../../redux/types";
+import { device } from "../../../device";
 
-const TableBodyRow = ({ country }: { country: Country }) => {
+const TableBodyRow = ({
+  country,
+  windowWidth,
+}: {
+  country: Country;
+  windowWidth: number;
+}) => {
   const { flag, name, population, region, languages } = country;
   const dispatch = useDispatch();
   const cart = useSelector((state: RootState) => state.countryReducer.cart);
@@ -32,11 +39,29 @@ const TableBodyRow = ({ country }: { country: Country }) => {
           {name}
         </Link>
       </Cell>
-      <Cell className={changeTheme}>{`${(population / 1000000).toFixed(
-        2
-      )} M`}</Cell>
-      <Cell className={changeTheme}>{region}</Cell>
-      <Cell className={changeTheme}>
+      <Cell
+        className={
+          windowWidth !== 0 && windowWidth < 768
+            ? `${changeTheme} hidden`
+            : changeTheme
+        }
+      >{`${(population / 1000000).toFixed(2)} M`}</Cell>
+      <Cell
+        className={
+          windowWidth !== 0 && windowWidth < 900
+            ? `${changeTheme} hidden`
+            : changeTheme
+        }
+      >
+        {region}
+      </Cell>
+      <Cell
+        className={
+          windowWidth !== 0 && windowWidth < 1200
+            ? `${changeTheme} hidden`
+            : changeTheme
+        }
+      >
         <List>
           {languages.map((language) => (
             <li key={language.name}>{language.nativeName}</li>
@@ -103,9 +128,17 @@ const Row = styled.tr`
 
 const Image = styled.img`
   width: 100%;
-  height: 15rem;
+  height: 5rem;
   object-fit: cover;
   box-shadow: 0 4px 5px 1px rgba(0, 0, 0, 0.3);
+
+  @media ${device.mobileL} {
+    height: 7rem;
+  }
+
+  @media ${device.tablet} {
+    height: 15rem;
+  }
 `;
 
 const Button = styled.button`
