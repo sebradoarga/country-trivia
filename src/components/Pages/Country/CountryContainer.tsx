@@ -7,12 +7,13 @@ import DarkModeBackground from "../../../images/map2.svg";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/reducers";
 import { Country } from "../../../redux/types";
+import LoadingMessage from "../../LoadingMessage";
 
 const CountryContainer = ({ country }: { country: Country }) => {
   const theme = useSelector((state: RootState) => state.themeReducer.theme);
   const changeTheme = theme === "dark" ? "dark-mode" : "";
   return !country ? (
-    <ErrorMessage />
+    <Loading className={changeTheme}>Loading...</Loading>
   ) : (
     <Container className={changeTheme}>
       <CountryHeader country={country} />
@@ -74,6 +75,20 @@ const Properties = styled.div`
   align-items: flex-start;
   justify-content: center;
   margin-top: 3rem;
+`;
+
+const Loading = styled.h2`
+  color: #222;
+  font-size: 3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  letter-spacing: 0.8rem;
+
+  &.dark-mode {
+    color: white;
+  }
 `;
 
 export default CountryContainer;

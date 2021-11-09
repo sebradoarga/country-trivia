@@ -33,6 +33,9 @@ const CountryProperty = ({
 
   const changeTheme = theme === "dark" ? "dark-mode" : "";
 
+  console.log("here, country is", country);
+  console.log("property is", property);
+
   return (
     <Property>
       <Name onClick={clickHandler} className={changeTheme}>

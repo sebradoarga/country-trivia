@@ -25,7 +25,7 @@ export const removeCountry = (countryName: string) => {
 };
 
 export const getCountries = () => {
-  return async (dispatch: Dispatch) => {
+  return async (dispatch: any) => {
     try {
       const data = await fetch("https://restcountries.com/v2/all");
       const countriesList = (await data.json()) as Country[];
@@ -45,12 +45,13 @@ export const fetchCountriesSuccess = (data: Country[]) => {
 
 // -----
 export const getOneCountry = (countryName: string | undefined) => {
-  return async (dispatch: Dispatch) => {
+  return async (dispatch: any) => {
     const data = await fetch(
       `https://restcountries.com/v2/name/${countryName}`
     );
 
     const country = (await data.json()) as Country;
+    console.log("the country is", country);
     dispatch(fetchOneCountrySuccess(country));
   };
 };

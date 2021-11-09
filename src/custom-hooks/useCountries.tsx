@@ -1,16 +1,17 @@
 // This hook is used to fetch all countries
 import { useState, useEffect } from "react";
+import { Country } from "../redux/types";
 
 const useCountries = () => {
   const URL = "https://restcountries.eu/rest/v2/";
-  const [countries, setCountries] = useState([]);
+  const [countries, setCountries] = useState<Country[]>([]);
   const [error, setError] = useState();
   const getCountries = async () => {
     try {
       const response = await fetch(URL);
-      const data = await response.json();
+      const data: Country[] = await response.json();
       setCountries(data);
-    } catch (error) {
+    } catch (error: any) {
       setError(error);
     }
   };

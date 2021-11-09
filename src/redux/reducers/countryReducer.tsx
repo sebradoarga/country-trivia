@@ -61,6 +61,7 @@ const countryReducer = (state = defaultState, action: AllActions): any => {
       return {
         ...state,
         countries: countriesPayload,
+        error: null,
       };
 
     case FETCH_ONE_COUNTRY_SUCCESS:
@@ -68,6 +69,7 @@ const countryReducer = (state = defaultState, action: AllActions): any => {
       return {
         ...state,
         country: countryData,
+        error: null,
       };
 
     case FETCH_ERROR:
