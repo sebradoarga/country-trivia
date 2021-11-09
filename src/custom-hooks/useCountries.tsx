@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Country } from "../redux/types";
 
 const useCountries = () => {
-  const URL = "https://restcountries.eu/rest/v2/";
+  const URL = "https://restcountries.com/v2/all";
   const [countries, setCountries] = useState<Country[]>([]);
   const [error, setError] = useState();
   const getCountries = async () => {

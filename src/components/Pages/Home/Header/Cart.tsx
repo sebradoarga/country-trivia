@@ -34,10 +34,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   height: 4rem;
-  width: 5rem;
   border-radius: 5px;
-  margin: 0 10rem;
-  padding: 0 1rem 0 0;
 `;
 
 const CartBtn = styled.button`
@@ -47,6 +44,7 @@ const CartBtn = styled.button`
   padding: 1rem;
   font-size: 3rem;
   transition: all 0.1s ease-in-out;
+  z-index: 5;
 
   &:hover {
     cursor: pointer;

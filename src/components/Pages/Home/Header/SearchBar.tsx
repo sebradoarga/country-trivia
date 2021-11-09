@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { device } from "../../../device";
 
 const SearchBar = ({
   searchText,
@@ -20,14 +21,18 @@ const SearchBar = ({
 
 const Search = styled.input`
   height: 5.5rem;
-  width: 57rem;
   padding-left: 1rem;
   font-size: 2.8rem;
   border: none;
   padding-top: 0.8rem;
+  z-index: 3;
 
   &:focus {
     outline: none;
+  }
+
+  @media ${device.tablet} {
+    width: 50rem;
   }
 `;
 

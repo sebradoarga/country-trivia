@@ -20,18 +20,18 @@ const ThemeButton = () => {
 };
 
 const Button = style.button`
-  margin: 0 10rem;
   background: transparent;
   border: none;
   font-size: 3rem;
   color: #4C9757;
   transition: all 0.3s ease;
+  z-index: 5;
   
   &:hover {
       color: #4c9757cb;
       cursor: pointer;
-
   }
+  
 `;
 
 export default ThemeButton;

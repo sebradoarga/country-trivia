@@ -5,6 +5,7 @@ import ThemeButton from "./ThemeButton";
 import styled from "styled-components";
 import Hero from "./Hero";
 import { FaSearch } from "react-icons/fa";
+import { device } from "../../../device";
 
 const Header = ({
   searchText,
@@ -45,10 +46,30 @@ const HeaderTag = styled.header`
 
 const Navbar = styled.nav`
   background: transparent;
-  padding: 3rem 0 0 0;
+  padding: 3rem 2rem 0 2rem;
   display: flex;
   width: 100%;
   justify-content: space-between;
+
+  @media ${device.mobileL} {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  @media ${device.tablet} {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  @media ${device.laptop} {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+
+  @media ${device.laptopL} {
+    padding-left: 9rem;
+    padding-right: 9rem;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -58,6 +79,8 @@ const Wrapper = styled.div`
   overflow: hidden;
   display: flex;
   align-items: center;
+  margin-top: 2rem;
+  z-index: 3;
 `;
 
 export default Header;
