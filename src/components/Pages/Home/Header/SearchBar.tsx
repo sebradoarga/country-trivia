@@ -6,7 +6,7 @@ const SearchBar = ({
   setSearchText,
 }: {
   searchText: string;
-  setSearchText: any;
+  setSearchText: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   return (
     <Search

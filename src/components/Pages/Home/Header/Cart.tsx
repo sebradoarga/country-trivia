@@ -4,7 +4,11 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../redux/reducers";
 
-const Cart = ({ setExpanded }: { setExpanded: any }) => {
+const Cart = ({
+  setExpanded,
+}: {
+  setExpanded: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const cart = useSelector((state: RootState) => state.countryReducer.cart);
   const theme = useSelector((state: RootState) => state.themeReducer.theme);
 

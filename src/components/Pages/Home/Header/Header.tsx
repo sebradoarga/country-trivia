@@ -12,9 +12,15 @@ const Header = ({
   setExpanded,
 }: {
   searchText: string;
-  setSearchText: any;
-  setExpanded: any;
+  setSearchText: React.Dispatch<React.SetStateAction<string>>;
+  setExpanded: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  const iconStyling = {
+    fontSize: "2.8rem",
+    marginLeft: "1rem",
+    color: "#222",
+  };
+
   return (
     <HeaderTag className="home-header">
       <Navbar>
@@ -23,9 +29,7 @@ const Header = ({
       </Navbar>
       <Hero />
       <Wrapper>
-        <FaSearch
-          style={{ fontSize: "2.8rem", marginLeft: "1rem", color: "#222" }}
-        />
+        <FaSearch style={iconStyling} />
         <SearchBar searchText={searchText} setSearchText={setSearchText} />
       </Wrapper>
     </HeaderTag>

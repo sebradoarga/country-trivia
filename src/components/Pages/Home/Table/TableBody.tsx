@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import TableBodyRow from "./TableBodyRow";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneCountry } from "../../../../redux/action";
@@ -10,13 +10,15 @@ const TableBody = ({ searchText }: { searchText: string }) => {
   const searchedCountry = useSelector(
     (state: RootState) => state.countryReducer.country
   );
-  const sort = useSelector((state: RootState) => state.countryReducer.sort);
   const sortedCountries = useSelector(
     (state: RootState) => state.countryReducer.countries
   );
 
   useEffect(() => {
-    dispatch(getOneCountry(searchText));
+    if (searchText !== "") {
+      dispatch(getOneCountry(searchText));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchText]);
 
   return (

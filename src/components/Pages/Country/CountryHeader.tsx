@@ -1,6 +1,5 @@
-import React from "react";
 import styled from "styled-components";
-import { DefaultRootState, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Country } from "../../../redux/types";
 import { RootState } from "../../../redux/reducers";
 

@@ -1,5 +1,4 @@
 import { Country } from "./types";
-import { Dispatch } from "react";
 
 export const INSERT_COUNTRY = "INSERT_COUNTRY";
 export const REMOVE_COUNTRY = "REMOVE_COUNTRY";
@@ -51,7 +50,6 @@ export const getOneCountry = (countryName: string | undefined) => {
     );
 
     const country = (await data.json()) as Country;
-    console.log("the country is", country);
     dispatch(fetchOneCountrySuccess(country));
   };
 };

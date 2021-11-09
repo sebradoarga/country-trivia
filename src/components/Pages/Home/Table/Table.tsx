@@ -18,6 +18,8 @@ const Table = ({ searchText }: { searchText: string }) => {
 
   useEffect(() => {
     dispatch(getCountries());
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return countries.length < 1 ? (

@@ -3,7 +3,7 @@ import Home from "./components/Pages/Home/Home";
 import CountryPage from "./components/Pages/Country/CountryPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "styled-components";
-import { DefaultRootState, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "./redux/reducers";
 
 function App() {

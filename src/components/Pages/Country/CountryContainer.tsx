@@ -1,13 +1,11 @@
 import CountryHeader from "./CountryHeader";
 import CountryProperty from "./CountryProperty";
-import ErrorMessage from "../../ErrorMessage";
 import styled from "styled-components";
 import Background from "../../../images/map.svg";
 import DarkModeBackground from "../../../images/map2.svg";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/reducers";
 import { Country } from "../../../redux/types";
-import LoadingMessage from "../../LoadingMessage";
 
 const CountryContainer = ({ country }: { country: Country }) => {
   const theme = useSelector((state: RootState) => state.themeReducer.theme);

@@ -16,15 +16,15 @@ const CountryPage = () => {
   const theme = useSelector((state: RootState) => state.themeReducer.theme);
 
   const dispatch = useDispatch();
-  console.log("just got country", country);
 
   useEffect(() => {
     dispatch(getOneCountry(name));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const changeTheme = theme === "dark" ? "dark-mode" : "";
 
-  return !country ? (
+  return !country || country[0].name !== name ? (
     <Loading className={changeTheme}>Loading...</Loading>
   ) : (
     <>

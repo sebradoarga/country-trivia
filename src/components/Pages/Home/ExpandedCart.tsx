@@ -10,7 +10,7 @@ const ExpandedCart = ({
   setExpanded,
 }: {
   expanded: Boolean;
-  setExpanded: any;
+  setExpanded: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const cart = useSelector((state: RootState) => state.countryReducer.cart);
   const theme = useSelector((state: RootState) => state.themeReducer.theme);
