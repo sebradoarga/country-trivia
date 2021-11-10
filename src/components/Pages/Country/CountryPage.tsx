@@ -10,9 +10,11 @@ import { Country } from "../../../redux/types";
 
 const CountryPage = ({ windowWidth }: { windowWidth: number }) => {
   const { name } = useParams<{ name?: string }>();
+  console.log("name is", name);
   const country: Country[] = useSelector(
     (state: RootState) => state.countryReducer.country
   );
+  console.log("country is", country);
   const theme = useSelector((state: RootState) => state.themeReducer.theme);
 
   const dispatch = useDispatch();
