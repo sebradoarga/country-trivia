@@ -33,7 +33,10 @@ const CountryPage = ({ windowWidth }: { windowWidth: number }) => {
       <Link to="/">
         <ReturnButton />
       </Link>
-      <CountryContainer country={country[0]} windowWidth={windowWidth} />
+      <CountryContainer
+        country={country ? country[0] : country}
+        windowWidth={windowWidth}
+      />
     </>
   );
 };
