@@ -4,9 +4,13 @@ import SortDropdown from "./SortDropdown";
 const TableHeadCell = ({
   text,
   windowWidth,
+  setValue,
+  value,
 }: {
   text: string;
   windowWidth: number;
+  setValue: any;
+  value: number;
 }) => {
   return (
     <Cell
@@ -23,7 +27,7 @@ const TableHeadCell = ({
           : ""
       }
     >
-      {text === "" ? <SortDropdown /> : text}
+      {text === "" ? <SortDropdown setValue={setValue} value={value} /> : text}
     </Cell>
   );
 };

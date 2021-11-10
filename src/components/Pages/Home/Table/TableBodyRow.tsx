@@ -63,9 +63,10 @@ const TableBodyRow = ({
         }
       >
         <List>
-          {languages.map((language) => (
-            <li key={language.name}>{language.nativeName}</li>
-          ))}
+          {languages &&
+            languages.map((language) => (
+              <li key={language.name}>{language.nativeName}</li>
+            ))}
         </List>
       </Cell>
       <Cell className={changeTheme}>

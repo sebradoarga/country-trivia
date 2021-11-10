@@ -19,6 +19,9 @@ const TableBody = ({
   const sortedCountries = useSelector(
     (state: RootState) => state.countryReducer.countries
   );
+  const tableLoading = useSelector(
+    (state: RootState) => state.countryReducer.tableLoading
+  );
 
   useEffect(() => {
     if (searchText !== "") {
@@ -27,7 +30,9 @@ const TableBody = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchText]);
 
-  return (
+  return tableLoading ? (
+    <h2>Hello</h2>
+  ) : (
     <tbody>
       {searchText === ""
         ? sortedCountries.length > 0 &&

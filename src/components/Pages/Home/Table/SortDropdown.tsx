@@ -2,15 +2,22 @@ import styled from "styled-components";
 import { sortTable } from "../../../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../redux/reducers";
-import React from "react";
 
-const SortDropdown = () => {
+const SortDropdown = ({
+  setValue,
+  value,
+}: {
+  setValue: any;
+  value: number;
+}) => {
   const dispatch = useDispatch();
   const criteria = useSelector(
     (state: RootState) => state.countryReducer.criteria
   );
+
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(sortTable(e.target.value));
+    setValue(value + 1); //force table to re-render
   };
 
   return (

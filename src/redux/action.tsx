@@ -81,12 +81,6 @@ export const sortTable = (criterium: string) => {
   };
 };
 
-export const getSortedCountries = () => {
-  return {
-    type: GET_SORTED_COUNTRIES,
-  };
-};
-
 type FetchError = {
   type: "FETCH_ERROR";
   payload: any;
@@ -115,11 +109,6 @@ type SortTable = {
   type: "SORT_TABLE";
   payload: string;
 };
-
-type GetSortedCountries = {
-  type: "GET_SORTED_COUNTRIES";
-};
-
 type RemoveCountry = {
   type: "REMOVE_COUNTRY";
   payload: string;
@@ -132,5 +121,4 @@ export type AllActions =
   | RemoveCountry
   | FetchCountriesSuccess
   | ChangeTheme
-  | SortTable
-  | GetSortedCountries;
+  | SortTable;

@@ -6,7 +6,6 @@ import {
   FETCH_ONE_COUNTRY_SUCCESS,
   FETCH_ERROR,
   SORT_TABLE,
-  GET_SORTED_COUNTRIES,
 } from "../action";
 import { Country } from "../types";
 
@@ -112,10 +111,11 @@ const countryReducer = (state = defaultState, action: AllActions): any => {
         );
       }
 
-      return { ...state, sort: newSort, countries: sortedCountries };
-
-    case GET_SORTED_COUNTRIES:
-      return;
+      return {
+        ...state,
+        sort: newSort,
+        countries: sortedCountries,
+      };
 
     default:
       return state;

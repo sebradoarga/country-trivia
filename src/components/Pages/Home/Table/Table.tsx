@@ -12,6 +12,8 @@ import { RootState } from "../../../../redux/reducers";
 const Table = ({ searchText }: { searchText: string }) => {
   const dispatch = useDispatch();
 
+  const [value, setValue] = useState<number>(0); //force re-render
+
   const countries = useSelector(
     (state: RootState) => state.countryReducer.countries
   );
@@ -37,7 +39,7 @@ const Table = ({ searchText }: { searchText: string }) => {
     <ErrorMessage />
   ) : (
     <TableTag cellSpacing="0" cellPadding="0">
-      <TableHead windowWidth={windowWidth} />
+      <TableHead windowWidth={windowWidth} value={value} setValue={setValue} />
       <TableBody searchText={searchText} windowWidth={windowWidth} />
     </TableTag>
   );
