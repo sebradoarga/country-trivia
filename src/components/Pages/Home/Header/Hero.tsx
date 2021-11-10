@@ -108,6 +108,7 @@ const Text = styled.div`
 
 const GlobeImage = styled.img`
   height: 25rem;
+  max-width: 100%;
   position: absolute;
   top: 5rem;
   opacity: 0.6;
