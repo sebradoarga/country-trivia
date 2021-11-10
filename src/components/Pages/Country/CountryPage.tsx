@@ -26,7 +26,7 @@ const CountryPage = ({ windowWidth }: { windowWidth: number }) => {
 
   const changeTheme = theme === "dark" ? "dark-mode" : "";
 
-  return !country ? (
+  return country.length < 1 ? (
     <Loading className={changeTheme}>Loading...</Loading>
   ) : country[0].name !== name ? (
     <Loading className={changeTheme}>Loading...</Loading>
