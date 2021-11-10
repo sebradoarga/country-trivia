@@ -21,8 +21,20 @@ const CountryProperty = ({
   );
   const theme = useSelector((state: RootState) => state.themeReducer.theme);
 
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+
+  const updateWidth = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  window.addEventListener("resize", updateWidth);
+
   const clickHandler = () => {
-    setVisible(!visible);
+    if (windowWidth < 1020) {
+      setVisible(visible);
+    } else {
+      setVisible(!visible);
+    }
   };
 
   const getCountryFromCode = (code: string) => {
