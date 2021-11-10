@@ -19,9 +19,9 @@ This is my front-end project for Integrify International Academy. Country Trivia
 
 ## 🔧 Built With
 
-    - React
-    - Typescript
-    - Redux
+- React
+- Typescript
+- Redux
 
 ## 🖌️ Design
 
