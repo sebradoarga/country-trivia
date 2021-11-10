@@ -8,7 +8,13 @@ import { RootState } from "../../../redux/reducers";
 import { Country } from "../../../redux/types";
 import { device } from "../../device";
 
-const CountryContainer = ({ country }: { country: Country }) => {
+const CountryContainer = ({
+  country,
+  windowWidth,
+}: {
+  country: Country;
+  windowWidth: number;
+}) => {
   const theme = useSelector((state: RootState) => state.themeReducer.theme);
   const changeTheme = theme === "dark" ? "dark-mode" : "";
   return !country ? (
@@ -21,26 +27,31 @@ const CountryContainer = ({ country }: { country: Country }) => {
           text={"other spellings"}
           country={country}
           property={!country.message ? country.altSpellings : "Loading data..."}
+          windowWidth={windowWidth}
         />
         <CountryProperty
           text={"region"}
           country={country}
           property={!country.message ? country.region : "Loading data..."}
+          windowWidth={windowWidth}
         />
         <CountryProperty
           text={"borders"}
           country={country}
           property={!country.message ? country.borders : "Loading data..."}
+          windowWidth={windowWidth}
         />
         <CountryProperty
           text={"currencies"}
           country={country}
           property={!country.message ? country.currencies : "Loading data..."}
+          windowWidth={windowWidth}
         />
         <CountryProperty
           text={"languages"}
           country={country}
           property={!country.message ? country.languages : "Loading data..."}
+          windowWidth={windowWidth}
         />
       </Properties>
     </Container>

@@ -8,7 +8,7 @@ import { getOneCountry } from "../../../redux/action";
 import { RootState } from "../../../redux/reducers";
 import { Country } from "../../../redux/types";
 
-const CountryPage = () => {
+const CountryPage = ({ windowWidth }: { windowWidth: number }) => {
   const { name } = useParams<{ name?: string }>();
   const country: Country[] = useSelector(
     (state: RootState) => state.countryReducer.country
@@ -31,7 +31,7 @@ const CountryPage = () => {
       <Link to="/">
         <ReturnButton />
       </Link>
-      <CountryContainer country={country[0]} />
+      <CountryContainer country={country[0]} windowWidth={windowWidth} />
     </>
   );
 };

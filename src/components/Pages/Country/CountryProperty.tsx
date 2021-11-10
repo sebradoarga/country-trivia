@@ -10,24 +10,18 @@ const CountryProperty = ({
   text,
   country,
   property,
+  windowWidth,
 }: {
   text: string;
   country: Country;
   property: string | string[] | Currency[];
+  windowWidth: number;
 }) => {
   const [visible, setVisible] = useState(true);
   const countries = useSelector(
     (state: RootState) => state.countryReducer.countries
   );
   const theme = useSelector((state: RootState) => state.themeReducer.theme);
-
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-
-  const updateWidth = () => {
-    setWindowWidth(window.innerWidth);
-  };
-
-  window.addEventListener("resize", updateWidth);
 
   const clickHandler = () => {
     if (windowWidth < 1020) {

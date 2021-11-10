@@ -9,7 +9,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { getCountries } from "../../../../redux/action";
 import { RootState } from "../../../../redux/reducers";
 
-const Table = ({ searchText }: { searchText: string }) => {
+const Table = ({
+  searchText,
+  windowWidth,
+}: {
+  searchText: string;
+  windowWidth: number;
+}) => {
   const dispatch = useDispatch();
 
   const [value, setValue] = useState<number>(0); //force re-render
@@ -24,14 +30,6 @@ const Table = ({ searchText }: { searchText: string }) => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-
-  const updateWidth = () => {
-    setWindowWidth(window.innerWidth);
-  };
-
-  window.addEventListener("resize", updateWidth);
 
   return countries.length < 1 ? (
     <LoadingMessage />

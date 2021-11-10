@@ -3,7 +3,7 @@ import Header from "./Header/Header";
 import ExpandedCart from "./ExpandedCart";
 import Table from "./Table/Table";
 
-const Home = () => {
+const Home = ({ windowWidth }: { windowWidth: number }) => {
   const [searchText, setSearchText] = useState("");
   const [expanded, setExpanded] = useState(false);
 
@@ -14,7 +14,7 @@ const Home = () => {
         setSearchText={setSearchText}
         setExpanded={setExpanded}
       />
-      <Table searchText={searchText} />
+      <Table searchText={searchText} windowWidth={windowWidth} />
       <ExpandedCart expanded={expanded} setExpanded={setExpanded} />
     </>
   );
