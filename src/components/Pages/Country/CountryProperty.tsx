@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { Country, Currency } from "../../../redux/types";
 import { RootState } from "../../../redux/reducers";
+import { device } from "../../device";
 
 const CountryProperty = ({
   text,
@@ -66,13 +67,17 @@ const CountryProperty = ({
 };
 
 const Property = styled.div`
-  margin: 1rem;
-  padding: 3rem 2rem;
   color: #222;
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 25rem;
+  margin: 2rem;
+
+  @media ${device.laptop} {
+    margin: 1rem;
+    padding: 3rem 2rem;
+  }
 `;
 
 const Name = styled.button`

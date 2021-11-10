@@ -16,9 +16,9 @@ const SortDropdown = () => {
   return (
     <Menu onChange={(e) => handleSelect(e)}>
       {criteria.map((criterium: string) => (
-        <option key={criterium} value={criterium}>
+        <Option key={criterium} value={criterium}>
           {criterium}
-        </option>
+        </Option>
       ))}
     </Menu>
   );
@@ -26,7 +26,11 @@ const SortDropdown = () => {
 
 const Menu = styled.select`
   max-width: 11rem;
-  padding: 0.3rem;
+  padding: 0.5rem 0;
+`;
+
+const Option = styled.option`
+  height: 1rem;
 `;
 
 export default SortDropdown;

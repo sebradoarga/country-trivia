@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { device } from "../../device";
 
 const ReturnButton = () => {
   return <Button>Go back</Button>;
@@ -15,13 +16,17 @@ const Button = styled.button`
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 0.3rem;
-  right: 7rem;
   top: 4rem;
+  right: 3rem;
   transition: all 0.1s ease-in-out;
 
   &:hover {
     cursor: pointer;
     transform: scale(1.1);
+  }
+
+  @media ${device.laptop} {
+    right: 7rem;
   }
 `;
 

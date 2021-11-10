@@ -24,7 +24,7 @@ const Image = styled.img`
   display: block;
   margin: auto;
   border-radius: 10px;
-  margin-top: 3rem;
+  margin-top: 8rem;
   box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.3);
   object-fit: cover;
   &.dark-mode {

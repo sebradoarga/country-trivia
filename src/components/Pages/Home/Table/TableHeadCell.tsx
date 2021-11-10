@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { device } from "../../../device";
 import SortDropdown from "./SortDropdown";
 
 const TableHeadCell = ({

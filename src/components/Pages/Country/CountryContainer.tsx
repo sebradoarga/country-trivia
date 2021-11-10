@@ -6,6 +6,7 @@ import DarkModeBackground from "../../../images/map2.svg";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/reducers";
 import { Country } from "../../../redux/types";
+import { device } from "../../device";
 
 const CountryContainer = ({ country }: { country: Country }) => {
   const theme = useSelector((state: RootState) => state.themeReducer.theme);
@@ -52,27 +53,45 @@ const Container = styled.div`
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
 
   &.dark-mode {
     background-image: linear-gradient(#06080594, #06080594),
       url(${DarkModeBackground});
   }
+
+  @media ${device.laptop} {
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 `;
 
 const Properties = styled.div`
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  margin-top: 3rem;
+  margin-top: 1rem;
+
+  @media ${device.tablet} {
+    width: 80%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+
+  @media ${device.laptop} {
+    margin-top: 3rem;
+    flex-wrap: nowrap;
+  }
 `;
 
 const Loading = styled.h2`
