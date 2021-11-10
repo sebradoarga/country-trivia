@@ -4,8 +4,7 @@ This is my front-end project for Integrify International Academy. Country Trivia
 
 **Click here to check it out: [link to Country Trivia](https://countrytrivia.netlify.app/)**
 
-![Image preview of Country Trivia]
-(./public/countrytriviapreview.png)
+![Image preview of Country Trivia](./public/countrytriviapreview.png)
 
 ## Features
 
