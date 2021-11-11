@@ -1,6 +1,6 @@
 <h1 align="center">Country Trivia</h1>
 
-<p align="center"><img src="./public/countrytriviapreview.png" alt="image preview of country trivia" align="center"><p>
+<p align="center"><img src="./public/preview2.png" alt="image preview of country trivia" align="center"><p>
 
 ## 🚀 Check Out The Website
 
