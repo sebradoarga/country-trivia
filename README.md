@@ -1,21 +1,23 @@
-# Country Trivia, A Frontend React Project
+<h1 align="center">Country Trivia</h1>
 
-This is my front-end project for Integrify International Academy. Country Trivia is a website that displays information about countries from around the globe using the REST Countries API.
+<p align="center"><img src="./public/countrytriviapreview.png" alt="image preview of country trivia" align="center"><p>
 
-🚀 **Click here to check it out: [link to Country Trivia](https://countrytrivia.netlify.app/)**
+## 🚀 Check Out The Website
 
-<p align="center"><img src="./public/countrytriviapreview.png" alt="image preview of country trivia" width="600" align="center"><p>
+[link to Country Trivia](https://countrytrivia.netlify.app/)
 
 ## ✨ Features
 
-- Filterable, responsive table displaying all the countries in the API
+- **Filterable, responsive table** displaying all the countries in the API
   - Filter the countries by name of population
   - Displayed information changes based on window size to avoid overcrowding the table
   - Use the searchbar to quickly find a country
-- Individual country pages
-- Light and Dark themes
-- Favorites list
+- **Individual country pages**
+- **Light and Dark themes**
+- **Favorites list**
   - Bookmark any of the countries in the table for future reference
+- **Local Storage**
+  - theme choice and favorited countries remain in the local storage
 
 ## 🔧 Built With
 
