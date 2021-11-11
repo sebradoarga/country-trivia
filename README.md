@@ -4,7 +4,7 @@
 
 ## 🚀 Check Out The Website
 
-[link to Country Trivia](https://countrytrivia.netlify.app/)
+[Link to Country Trivia](https://countrytrivia.netlify.app/)
 
 ## ✨ Features
 
@@ -21,9 +21,9 @@
 
 ## 🔧 Built With
 
-- React
-- Typescript
-- Redux
+- **React**
+- **Typescript**
+- **Redux**
 
 ## 🖌️ Design
 
