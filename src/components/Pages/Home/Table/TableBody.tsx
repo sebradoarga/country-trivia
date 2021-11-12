@@ -30,9 +30,7 @@ const TableBody = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchText]);
 
-  return tableLoading ? (
-    <h2>Hello</h2>
-  ) : (
+  return (
     <tbody>
       {searchText === ""
         ? sortedCountries.length > 0 &&
