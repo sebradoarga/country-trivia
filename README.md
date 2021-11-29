@@ -62,6 +62,5 @@ It was also a valuable opportunity to familiarize myself with Redux.
 
 ## Author
 
-<!-- - Website - [Sebastian-Radu Oarga](to be added) -->
-
+- Website - [Sebastian-Radu Oarga](http://www.sebastianraduoarga.com)
 - LinkedIn - [Sebastian-Radu Oarga](https://www.linkedin.com/in/sebastianoarga/)
