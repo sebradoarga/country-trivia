@@ -34,7 +34,7 @@ These are some of the features of my project:
 - Sortable (based on country name and population size) and searchable table
 - Light & Dark mode
 - Countries can be favorited and save in Favorite Cart
-- Individual pages for each speciifc countries
+- Individual pages for each speciifc country
 - Full responsiveness (including the table, which adjusts the amount of shown information based on window size)
 
 ### Links
@@ -62,6 +62,5 @@ It was also a valuable opportunity to familiarize myself with Redux.
 
 ## Author
 
-<!-- - Website - [Sebastian-Radu Oarga](to be added) -->
-
+- Website - [Sebastian-Radu Oarga](http://www.sebastianraduoarga.com)
 - LinkedIn - [Sebastian-Radu Oarga](https://www.linkedin.com/in/sebastianoarga/)
