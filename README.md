@@ -33,7 +33,7 @@ These are some of the features of my project:
 
 - Sortable (based on country name and population size) and searchable table
 - Light & Dark mode
-- Countries can be favorited and save in Favorite Cart
+- Countries can be favorited and saved in Favorite Cart
 - Individual pages for each specific country
 - Full responsiveness (including the table, which adjusts the amount of shown information based on window size)
 
