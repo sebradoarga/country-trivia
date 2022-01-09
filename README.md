@@ -18,7 +18,6 @@ This website is fully responsive and styled entirely from scratch with CSS and _
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
